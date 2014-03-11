@@ -1,0 +1,27 @@
+{
+  "creator":"geonlp",
+  "description":"1都1道2府43県の辞書です。県庁所在地の住所と電話番号を含みます。代表点の座標は県庁の住所をジオコーディングにより取得しています。",
+  "icon":"https://geonlp.ex.nii.ac.jp/icon/user/geonlp/IjioHK.png",
+  "identifier":"https://geonlp.ex.nii.ac.jp/dictionary/geonlp/japan_pref",
+  "internal_id":28,
+  "issued":"2013-09-12 17:47:55",
+  "modified":"2013-09-12 17:47:55",
+  "record_count":0,
+  "report_count":47,
+  "source":"財団法人地方自治情報センター「都道府県庁」（https://www.lasdec.or.jp/cms/1,69,14,188.html）",
+  "spatial":[
+    [
+      127.679630,
+      26.213300
+    ],
+    [
+      141.347020,
+      43.064110
+    ]
+  ],
+  "subject":[
+    "都道府県"
+  ],
+  "title":"日本の都道府県（2010年4月） ",
+  "url":"https://geonlp.ex.nii.ac.jp/dictionary/geonlp/japan_pref/geonlp_japan_pref_20130912_u.zip"
+}

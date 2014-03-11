@@ -1,0 +1,12 @@
+#!ruby -Ku
+# -*- coding: utf-8 -*-
+require 'net/http'
+request = %q!{"method":"geonlp.getCodeKeys", "params":["/^JIS.*/"], "id":"7"}!
+
+Net::HTTP.version_1_2
+https = Net::HTTP.new('geonlp.ex.nii.ac.jp', 443)
+https.use_ssl = true
+https.start {
+  response = https.post('/webapi/api.php', query=request)
+  puts response.body.gsub(/\\u([0-9a-f]{4})/) { [$1.hex].pack("U") }
+}

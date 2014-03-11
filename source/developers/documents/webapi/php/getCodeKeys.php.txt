@@ -1,0 +1,10 @@
+<?php
+require_once('jsonrpc_client.php');
+
+$json_request = array(
+  'method'=>'geonlp.getCodeKeys',
+  'params'=>array("/^jisx04.*/"),
+  'id'=>7);
+
+$result = jsonrpc_exec($json_request);
+print_r($result);

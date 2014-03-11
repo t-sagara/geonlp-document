@@ -1,0 +1,28 @@
+{#
+    basic/localtoc.html
+    ~~~~~~~~~~~~~~~~~~~
+
+    Sphinx sidebar template: local table of contents.
+
+    :copyright: Copyright 2007-2011 by the Sphinx team, see AUTHORS.
+    :license: BSD, see LICENSE for details.
+#}
+{#%- if display_toc %#}
+  <h3>ショートカットリンク</h3>
+    <ul>
+    <li><a class="reference external"
+    href="https://geonlp.ex.nii.ac.jp">GeoNLP トップ</a></li>
+    <li><a class="reference internal" href="{{
+    pathto('tutorial/index') }}">チュートリアル</a></li>
+    <li><a class="reference internal" href="{{
+    pathto('common/publisher_index') }}">辞書製作者向け資料</a></li>
+    <li><a class="reference internal" href="{{
+    pathto('developers/index') }}">開発者向け資料</a></li>
+    <li><a class="reference internal" href="{{
+    pathto('developers/software/index') }}">GeoNLP ソフトウェア</a></li>
+    <li><a class="reference internal" href="{{
+    pathto('class/index') }}">固有名クラス一覧</a></li>
+    </ul>
+  <h3><a href="{{ pathto(master_doc) }}">{{ _("Table Of Contents") }}</a></h3>
+  {{ toc }}
+{#%- endif %#}

@@ -1,0 +1,161 @@
+.. _webapi_getCodeKeys:
+
+================================================
+getCodeKeys
+================================================
+
+説明
+---------------------------------------
+
+利用可能なコード体系の一覧を取得する。
+
+全辞書に登録されている地名語の code から、キーとして利用されている
+文字列を検索して一覧を返す。
+
+文法
+---------------------------------------
+
+object **geonlp.getCodeKeys** ( [ string *pattern* ] )
+
+
+リクエストパラメータ
+---------------------------------------
+
+*pattern*
+ - コード体系を表す文字列の正規表現
+ - 省略した場合は全てのコード体系を返す
+
+リクエストの例
+++++++++++++++++++++++++++++++++++++++++
+.. sourcecode:: json
+
+  { 
+    "method": "geonlp.getCodeKeys",
+    "params": [ "/^jisx04.*/" ],
+    "id": "7"
+  }
+
+
+レスポンス
+---------------------------------------
+
+リクエストで指定された正規表現パターンに一致するキー文字列の配列。
+
+
+レスポンスの例
+++++++++++++++++++++++++++++++++++++++++
+.. sourcecode:: json
+
+    {
+        "result": [
+            "jisx0401",
+            "jisx0402"
+        ],
+        "error": null,
+        "id": "7"
+    }
+
+
+PHP サンプルコード
+---------------------------------------
+
+jsonrpc_client.php
++++++++++++++++++++++++++++++++++++++++
+:download:`ダウンロード <php/jsonrpc_client.php.txt>`
+
+.. sourcecode :: php
+
+  <?php
+  
+  function jsonrpc_exec($json_request) {
+    $endpoint = "https://geonlp.ex.nii.ac.jp/webapi/api.php";
+    $query = json_encode($json_request);
+    $header  = array("Content-Type: application/x-www-form-urlencoded",
+                     "Content-Length: ".strlen($query));
+    $options = array('http' => array('method' => 'POST', 'header' =>
+    implode("\r\n", $header), 'content' => $query));
+    $content = file_get_contents($endpoint, false,
+    stream_context_create($options));
+    $result = json_decode($content, true);
+    return $result;
+  }
+
+
+getCodeKeys.php
++++++++++++++++++++++++++++++++++++++++
+:download:`ダウンロード <php/getCodeKeys.php.txt>`
+
+.. sourcecode :: php
+
+  <?php
+  require_once('jsonrpc_client.php');
+  
+  $json_request = array(
+    'method'=>'geonlp.getCodeKeys',
+    'params'=>array("/^jisx04.*/"),
+    'id'=>7);
+  
+  $result = jsonrpc_exec($json_request);
+  print_r($result);
+
+実行結果
++++++++++++++++++++++++++++++++++++++++
+
+.. sourcecode :: bash
+
+  $ php getCodeKeys.php
+
+.. sourcecode :: php
+
+    Array
+    (
+        [result] => Array
+            (
+                [0] => jisx0401
+                [1] => jisx0402
+            )
+    
+        [error] => 
+        [id] => 7
+    )
+
+
+Ruby サンプルコード
+---------------------------------------
+
+getCodeKeys.rb
++++++++++++++++++++++++++++++++++++++++
+:download:`ダウンロード <ruby/getCodeKeys.rb.txt>`
+
+.. sourcecode :: ruby
+
+  #!ruby -Ku
+  # -*- coding: utf-8 -*-
+  require 'net/https'
+  request = %q!{"method":"geonlp.getCodeKeys", "params":["/^jisx04.*/"], "id":"7"}!
+  
+  Net::HTTP.version_1_2
+  https = Net::HTTP.new('geonlp.ex.nii.ac.jp', 443)
+  https.use_ssl = true
+  https.start {
+    response = https.post('/webapi/api.php', query=request)
+    puts response.body.gsub(/\\u([0-9a-f]{4})/) { [$1.hex].pack("U") }
+  }
+
+実行結果
++++++++++++++++++++++++++++++++++++++++
+
+.. sourcecode :: bash
+
+    $ ruby getDictionaries.rb
+
+.. sourcecode :: json
+
+    {
+        "result": [
+            "jisx0401",
+            "jisx0402"
+        ],
+        "error": null,
+        "id": "7"
+    }

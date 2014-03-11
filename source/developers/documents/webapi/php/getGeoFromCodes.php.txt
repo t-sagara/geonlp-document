@@ -1,0 +1,14 @@
+<?php
+require_once('jsonrpc_client.php');
+
+$json_request = array(
+  'method'=>'geonlp.getGeoFromCodes',
+  'params'=>array(array(
+			array("jisx0401"=>"01"),
+			array("jisx0401"=>"11"),
+			array("jisx0401"=>"42")),
+		  array("with-dic"=>array(1))),
+  'id'=>8);
+
+$result = jsonrpc_exec($json_request);
+print_r($result);

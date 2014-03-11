@@ -1,0 +1,16 @@
+{
+  "identifier" : "https://geonlp.ex.nii.ac.jp/dictionary/geonlp/japan_airport",
+  "internal_id" : 32,
+  "creator" : "geonlp",
+  "title" : "日本の空港（2012年）",
+  "description" : "日本の空港・飛行場の辞書です。米軍専用飛行場は含みません。自由フィールドには、空港種別、設置者、運用者、運用時間（空港が運用されている時間帯）、滑走路の長さと幅を含みます。\r\n設置者および運用者のコードは、1:国土交通大臣、2:防衛大臣、3:米軍、4:公団、5:都道府県、6:市町村を表します。",
+  "source" : "国土数値情報「空港データ（平成24年度）C28-12」国土交通省（http://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-C28-v2_2.html）",
+  "spatial" : [ [ 122.979722, 24.059557 ], [ 144.96, 45.455 ] ],
+  "subject" : [ "航空施設/空港" ],
+  "issued" : "2013-09-12 17:48:35",
+  "modified" : "2013-09-12 17:48:35",
+  "report_count" : 96,
+  "record_count" : 0,
+  "icon" : "https://geonlp.ex.nii.ac.jp/icon/user/geonlp/x2twEV.png",
+  "url" : "https://geonlp.ex.nii.ac.jp/dictionary/geonlp/japan_airport/geonlp_japan_airport_20130912_u.zip"
+}

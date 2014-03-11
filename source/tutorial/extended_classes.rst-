@@ -1,0 +1,44 @@
+.. _extended_classes:
+
+====================================================
+GeoNLP で推奨する拡張クラスのリスト
+====================================================
+
+ここでは `Full Hierarchy - schema.org
+<http://schema.org/docs/full.html>`_ には記載がないが、 GeoNLP で利用されている
+拡張クラスの一覧を随時更新する。
+
+Construction の拡張
+====================================================
+
+- Construction/Road （道路）
+- Construction/Railway （鉄道）
+- Construction/Highway （高速道路）
+- Construction/HighwayIntersection （高速道路分岐）
+- Construction/Port （港）
+
+CivicStructure の拡張クラス
+====================================================
+
+- CivicStructure/PowerPlant （発電所）
+
+State の拡張クラス
+====================================================
+
+- State/Prefecture （都道府県）
+- State/County (郡)
+- State/GeneralSubprefecturalBureau (総合振興局)
+- State/SubprefecturalBureau (振興局)
+- State/SubPrefectureOffice (支庁)
+
+City の拡張クラス
+====================================================
+
+- City/Ward （区）
+- City/Town  (町)
+- City/Village (村)
+
+GovernmentOrganization の拡張クラス
+====================================================
+
+- GovernmentOrganization/ResearchInstitute (研究所)

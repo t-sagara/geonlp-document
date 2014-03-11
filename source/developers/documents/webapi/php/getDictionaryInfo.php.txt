@@ -1,0 +1,10 @@
+<?php
+require_once('jsonrpc_client.php');
+
+$request = array(
+  'method'=>'geonlp.getDictionaryInfo',
+  'params'=>array(array(28, 29)),
+  'id'=>6);
+
+$result = jsonrpc_exec(json_encode($request));
+print_r($result);

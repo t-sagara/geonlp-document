@@ -1,0 +1,24 @@
+{
+  "body":"神保町",
+  "body_kana":"ジンボウチョウ",
+  "dictionary_id":31,
+  "entry_id":"eb03_6365",
+  "geonlp_id":"pnTSo0",
+  "hypernym":[
+    "東京都",
+    "新宿線"
+  ],
+  "latitude":"35.6960166666667",
+  "longitude":"139.75742",
+  "ne_class":"鉄道施設/地下鉄駅",
+  "railway_type":"12",
+  "service_provider_type":"3",
+  "suffix":[
+    "駅",
+    ""
+  ],
+  "suffix_kana":[
+    "エキ",
+    ""
+  ]
+}
