@@ -2,7 +2,7 @@ geonlp-document
 ===============
 
 This repository contains Sphinx source documents for GeoNLP.
-You need Sphinx 2.6 or later to compile it.
+You need Sphinx 1.2 or later to compile it.
 
 "GeoNLP" is a Japanese research project for developing "geo-tagging" tools and libraries, which can analyze and extract toponyms/location names from natural language sentences (currently only for sentences written in Japanese).
 
