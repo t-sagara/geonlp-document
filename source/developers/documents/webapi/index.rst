@@ -37,6 +37,7 @@ WebAPI メソッド一覧
    getDictionaryInfo
    addressGeocoding
    parse-option
+   dist-server
 
 ..   getCodeKeys
 ..   getGeoFromCodes
