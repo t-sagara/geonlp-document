@@ -32,8 +32,7 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 
 `GeoNLP software version 1.0.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.0.tgz>`_
 
-都道府県、市区町村など必要最小限の :ref:`geonlp_terms_dictionary` はソースコードに同梱されています。
-
+都道府県、市区町村など必要最小限の :ref:`geonlp_terms_dictionary` は、 version 1.0.8 まではソースコードに同梱されています。1.0.9 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
 
 関連ファイルのダウンロード
 ===================================================

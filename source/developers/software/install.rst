@@ -45,11 +45,13 @@ MeCab 用の辞書
 SQLite3
   ファイルベースの SQL データベース管理システムです。バージョン 3.4 以降で動作を確認しています。
 
-
 DAMS
   オープンソースのジオコーダライブラリです。インストールは必須ではありませんが、インストールされていない場合は住所文字列の抽出とジオコーディング機能が無効になります。
 
   `ジオコーダーDAMS <http://newspat.csis.u-tokyo.ac.jp/geocode/modules/dams/>`_
+
+PHP
+  :ref:`software_dic_util` を利用する場合には PHP 5.3 以降が必要です。
 
 .. _software_install_compile:
 
@@ -86,22 +88,6 @@ Boost や Sqlite3 などのライブラリが通常のライブラリパスに�
 
   % ./configure LDFLAGS=-L/home/foo/lib CXXFLAGS=-I/home/foo/include
  
-.. _software_install_pretest:
-
-動作確認
-====================================================
-
-コンパイルが終わったら、次のコマンドで動作確認を行います。
-
-.. sourcecode:: bash
-
-  % make test-preinstall
-
-このテストでは、 dict/ ディレクトリに一時的に生成された辞書を利用し、 src/geonlp_api コマンドで解析ができるかどうかを確認します。以下のような JSON 形式の結果が出力されれば、コンパイル成功です。
-
-.. literalinclude:: test_result.json
-   :language: javascript
-
 .. _software_install_install:
 
 インストール
@@ -111,36 +97,9 @@ Boost や Sqlite3 などのライブラリが通常のライブラリパスに�
 
 .. sourcecode:: bash
 
-  % su
-  # make install
-
-正しくインストールできたことを確認するには、次のコマンドを実行します。
-
-.. sourcecode:: bash
-
-  % make test-postinstall
-
-このテストでは、辞書インストール先ディレクトリ（デフォルトでは /usr/local/lib/geonlp/）の辞書を利用し、コマンドインストール先ディレクトリ（デフォルトでは /usr/local/bin/）の geonlp_api コマンドで解析ができるかどうかを確認します。 test-preinstall と同じ結果が得られればインストール成功です。
+  % sudo make install
 
 ライブラリファイルのインストール先ディレクトリが、動的ライブラリのリンクパスに含まれていない場合、 libgeonlp が見つからないというエラーが発生します。その場合は /etc/ld.so.conf にディレクトリを追加するか、環境変数 LD_LIBRARY_PATH を設定するといった処理を追加してください。
-
-
-.. _software_install_adddic:
-
-地名語辞書の追加インストール
-====================================================
-
-同梱されている以外の地名語辞書を `GeoNLP サイト <https://geonlp.ex.nii.ac.jp>`_ からダウンロードして利用したい場合、 :ref:`cmd_geonlp_add` コマンドで登録し、 :ref:`cmd_geonlp_ma_makedic` コマンドでインデックス等を更新します。以下のように、 dict/zip/ ディレクトリにダウンロードした辞書をコピーして make しなおせば、追加した辞書も利用できるようになります。
-
-.. sourcecode:: bash
-
-  （geonlp-software を展開したディレクトリで）
-  % wget https://geonlp.ex.nii.ac.jp/dictionary/kitamoto/evacuation/kitamoto_evacuation_20130918_u.zip
-  % mv kitamoto_evacuation_20130918_u.zip dict/zip/
-  % make
-  % su
-  # make install
-
 
 .. _software_install_centos:
 

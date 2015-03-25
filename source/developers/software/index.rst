@@ -14,13 +14,14 @@ GeoNLP ソフトウェアは、自然言語テキストから地名を抽出す�
 本ソフトウェアは、「 :ref:`geonlp_terms_dictionary` に掲載されている
 :ref:`geonlp_terms_geoword` は確実に抽出する」ことを基本方針としています。 :ref:`geonlp_terms_dictionary` を利用して形態素解析のレベルから制御し、異体字・新旧字などの表記揺れにも対応することで、抽出精度を向上させています。
 
-また、`GeoNLP データ共有サイト <https://geonlp.ex.nii.ac.jp/>`_ 上で公開されている任意の :ref:`地名解析辞書をインポートして利用する <quick_import_data>` ことができます。
+また、`GeoNLP データ共有サイト <https://geonlp.ex.nii.ac.jp/>`_ 上で公開されている任意の :ref:`地名解析辞書をダウンロードして利用する <quick_import_data>` ことができます。
 
 その反面、現状では「地名ではない語が地名として抽出されてしまう（過抽出）」ことがあります。用途に合わせて適切な :ref:`geonlp_terms_dictionary` を選択したり、抽出結果を後処理でフィルタリングするといった方法で、十分実用的な活用が可能です。ソフトウェアの改良により、抽出精度も改善していく予定です。
 
 
-また、 `東京大学空間情報科学研究センターから公開されているジオコーダー
-DAMS <http://newspat.csis.u-tokyo.ac.jp/geocode/modules/dams/>`_ とリンクすることで、住所文字列を抽出して経緯度を算出することもできます（Ver. 1.0.5 以降）。
+また、 `東京大学空間情報科学研究センターから公開されているジオコーダー DAMS <http://newspat.csis.u-tokyo.ac.jp/geocode/modules/dams/>`_ とリンクすることで、住所文字列を抽出して経緯度を算出することもできます（Ver. 1.0.5 以降）。
+
+以下、ローカルサーバ上に GeoNLP ソフトウェアをインストールし、利用する手順を説明します。
 
 目次
 ====================================================
@@ -30,6 +31,7 @@ DAMS <http://newspat.csis.u-tokyo.ac.jp/geocode/modules/dams/>`_ とリンクす
 
    download
    install
+   dic-util
    quick_start
    advanced
    command
