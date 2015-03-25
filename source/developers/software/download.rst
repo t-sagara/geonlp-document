@@ -16,7 +16,9 @@
 
 GeoNLP ソフトウェアのソースコードは以下のリンクからダウンロードできます。
 
-`GeoNLP software version 1.0.7 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.7.tgz>`_
+`GeoNLP software version 1.1.0 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.1.0.tgz>`_
+
+`GeoNLP software version 1.0.7 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.7.tgz>`_
 
 `GeoNLP software version 1.0.6 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.6.tgz>`_
 
@@ -32,18 +34,25 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 
 `GeoNLP software version 1.0.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.0.tgz>`_
 
-都道府県、市区町村など必要最小限の :ref:`geonlp_terms_dictionary` は、 version 1.0.8 まではソースコードに同梱されています。1.0.9 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
+都道府県、市区町村など必要最小限の :ref:`geonlp_terms_dictionary` は、 version 1.0.8 まではソースコードに同梱されています。1.1.0 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
 
 関連ファイルのダウンロード
 ===================================================
 
 PHP バインディングは上記ソースコードに同梱されています。
 
-上記以外の :ref:`geonlp_terms_dictionary` は `GeoNLP Data <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードしてください。ダウンロードした辞書をインポートする手順は :ref:`quick_import_data` を参照してください。
-
+:ref:`geonlp_terms_dictionary` は `GeoNLP Data サイト <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードできます。ダウンロードした辞書を手作業でインポートする手順は :ref:`quick_import_data` を参照してください。
 
 更新履歴
 ===================================================
+
+Ver. 1.1.0
+
+  :ref:`software_dic_util` をダウンロードパッケージに追加
+
+  :ref:`dist_server` 機能を追加
+
+  このバージョンより、 :ref:`software_dic_util` を含むため、地名解析辞書はパッケージに同梱されませんので注意してください。
 
 Ver. 1.0.7
 
