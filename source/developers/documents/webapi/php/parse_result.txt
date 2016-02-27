@@ -3,20 +3,25 @@ array (
   'id' => '1',
   'result' => 
   array (
-    0 => 
+    'features' => 
     array (
-      'surface' => 'NIIは',
-    ),
-    1 => 
-    array (
-      'geo' => 
+      0 => 
+      array (
+        'geometry' => NULL,
+        'properties' => 
+        array (
+          'surface' => 'NIIは',
+        ),
+        'type' => 'Feature',
+      ),
+      1 => 
       array (
         'geometry' => 
         array (
           'coordinates' => 
           array (
-            0 => 139.758606,
-            1 => 35.691406,
+            0 => 139.756927,
+            1 => 35.692795,
           ),
           'type' => 'Point',
         ),
@@ -27,9 +32,9 @@ array (
             0 => 
             array (
               'geonlp_id' => 'ALRYpP',
-              'latitude' => 35.693932,
+              'latitude' => 35.689499,
               'level' => 1,
-              'longitude' => 139.75354,
+              'longitude' => 139.691635,
               'name' => '東京都',
             ),
             1 => 
@@ -42,7 +47,6 @@ array (
             ),
             2 => 
             array (
-              'geonlp_id' => '8G80mm',
               'latitude' => 35.691635,
               'level' => 5,
               'longitude' => 139.756683,
@@ -57,16 +61,14 @@ array (
             ),
             4 => 
             array (
-              'latitude' => 35.691406,
+              'latitude' => 35.692795,
               'level' => 7,
-              'longitude' => 139.758606,
+              'longitude' => 139.756927,
               'name' => '１番',
             ),
           ),
           'code' => 
           array (
-            'isj' => '131010001999',
-            'jisx0401' => '13',
             'jisx0402' => '13101',
             'lasdec' => '131016',
           ),
@@ -75,22 +77,23 @@ array (
         ),
         'type' => 'Feature',
       ),
-      'surface' => '千代田区一ツ橋２－１－',
-    ),
-    2 => 
-    array (
-      'surface' => '２にあります。',
-    ),
-    3 => 
-    array (
-      'geo' => 
+      2 => 
+      array (
+        'geometry' => NULL,
+        'properties' => 
+        array (
+          'surface' => '２にあります。',
+        ),
+        'type' => 'Feature',
+      ),
+      3 => 
       array (
         'geometry' => 
         array (
           'coordinates' => 
           array (
-            0 => 139.758665,
-            1 => 35.69605,
+            0 => 139.758428,
+            1 => 35.694893,
           ),
           'type' => 'Point',
         ),
@@ -99,16 +102,16 @@ array (
           'body' => '神保町',
           'body_kana' => 'ジンボウチョウ',
           'dictionary_id' => 31,
-          'entry_id' => 'eb03_6366',
-          'geonlp_id' => '7jSL63',
+          'entry_id' => 'eb03_6358',
+          'geonlp_id' => 'rQ1HpF',
           'hypernym' => 
           array (
             0 => '東京都',
-            1 => '新宿線',
+            1 => '三田線',
           ),
           'kana' => 'ジンボウチョウエキ',
-          'latitude' => '35.69605',
-          'longitude' => '139.758665',
+          'latitude' => '35.6948933333333',
+          'longitude' => '139.758428333333',
           'name' => '神保町駅',
           'ne_class' => '鉄道施設/地下鉄駅',
           'railway_type' => '12',
@@ -126,11 +129,16 @@ array (
         ),
         'type' => 'Feature',
       ),
-      'surface' => '神保町',
+      4 => 
+      array (
+        'geometry' => NULL,
+        'properties' => 
+        array (
+          'surface' => 'から徒歩3分。',
+        ),
+        'type' => 'Feature',
+      ),
     ),
-    4 => 
-    array (
-      'surface' => 'から徒歩3分。',
-    ),
+    'type' => 'FeatureCollection',
   ),
 )

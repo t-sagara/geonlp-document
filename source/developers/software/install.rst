@@ -14,7 +14,7 @@ apt, yum などのパッケージマネージャを利用してインストー�
 OS
   UNIX系のOSが必要です。Windowsには対応していません。
 
-  CentOS 4.7, CentOS 5.10, CentOS 6.4, Debian 7.1 で動作を確認しています。（ただし Debian 7.1 は Version 1.0.2 以前のバージョンでは動きません）。CentOS 6.4 でのインストール手順は :ref:`software_install_centos` を、 Debian 7.1 でのインストール手順は :ref:`software_install_debian` をご覧ください。
+  CentOS 6.7, CentOS 7.2, Ubuntu 14.04 で動作を確認しています。CentOS でのインストール手順は :ref:`software_install_centos` を、 Ubuntu 14.04 でのインストール手順は :ref:`software_install_ubuntu` をご覧ください。
 
 GNU C++
   プログラムのコンパイルに GNU C++ (g++) が必要です。バージョン 4.1.2
@@ -43,13 +43,17 @@ MeCab 用の辞書
 SQLite3
   ファイルベースの SQL データベース管理システムです。バージョン 3.4 以降で動作を確認しています。
 
+PHP
+  :ref:`software_dic_util` を利用する場合には PHP 5.3 以降が必要です。
+
+GDAL
+  :ref:`webapi_parse_option_geotime_filter` 機能のうち、geo- フィルタを利用する場合には `GDAL <http://www.gdal.org>`_ 1.x 系が必要です。
+
 DAMS
-  オープンソースのジオコーダライブラリです。インストールは必須ではありませんが、インストールされていない場合は住所文字列の抽出とジオコーディング機能が無効になります。
+  オープンソースのジオコーダライブラリです。インストールは必須ではありませんが、インストールされていない場合は住所文字列の抽出とジオコーディング機能が無効になります。バージョン 4.3.4 で動作を確認しています。
 
   `ジオコーダーDAMS <http://newspat.csis.u-tokyo.ac.jp/geocode/modules/dams/>`_
 
-PHP
-  :ref:`software_dic_util` を利用する場合には PHP 5.3 以降が必要です。
 
 .. _software_install_compile:
 
@@ -101,14 +105,20 @@ Boost や Sqlite3 などのライブラリが通常のライブラリパスに�
 
 .. _software_install_centos:
 
-CentOS 6.4 でのインストール手順
+CentOS でのインストール手順
 ====================================================
 
 yum を利用し、以下のパッケージをインストールしておく必要があります。
 
-- boost-devel
-- sqlite-devel
-- unzip
+(6.x の場合)
+.. sourcecode:: bash
+
+  % sudo yum install boost-devel sqlite-devel unzip
+
+(7.x の場合)
+.. sourcecode:: bash
+
+  % sudo yum install boost-devel sqlite3-devel
 
 MeCab, naist-jdic はリポジトリに登録されていませんので、ソースコードをダウンロードしてコンパイル・インストールしてください。
 
@@ -119,29 +129,41 @@ MeCab, naist-jdic はリポジトリに登録されていませんので、ソ�
 - gcc-c++
 - make
 
+GDAL を利用する場合、 EPEL リポジトリを追加し、 gdal-devel をインストールします。
+
+  `EPEL リポジトリの追加方法（外部英語ページ）
+  <https://fedoraproject.org/wiki/EPEL/FAQ#howtouse>`_
+
+.. sourcecode:: bash
+
+  % sudo yum install gdal-devel
+
 あとは :ref:`software_install_compile` 以降に従ってください。
 
 .. _software_install_debian:
 
-Debian 7.1 でのインストール手順
+Ubuntu 14.04 でのインストール手順
 ====================================================
 
-apt-get または aptitude を利用し、以下のパッケージをインストールしておく必要があります。
+apt-get を利用し、以下のパッケージをインストールしておく必要があります。
 
-- boost-dev
-- libboost-system1.49-dev
-- libboost-filesystem1.49-dev
-- libboost-regex1.49-dev
-- libboost-thread1.49-dev
-- libmecab-dev
-- sqlite3
-- libsqlite3-dev
-- mecab
-- naist-jdic (EUC ではなく UTF-8 バージョンが必要です)
+.. sourcecode:: bash
+
+  % sudo apt-get install boost-devel sqlite3-devel mecab libmecab-dev mecab-ipadic-utf8
 
 上記の他、もしインストールしていなければ、コンパイラと Make も必要です。
 
 - g++
 - make
+
+GDAL を利用する場合、パーソナルパッケージアーカイブ（PPA）の 
+`UbuntuGis team <https://launchpad.net/~ubuntugis/+archive/ubuntu/ubuntugis-unstable/>`_ を登録し、
+libgdal1-dev をインストールします。
+
+.. sourcecode:: bash
+
+  % sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
+  $ sudo apt update
+  $ sudo apt-get install libgdal1-dev
 
 あとは :ref:`software_install_compile` 以降に従ってください。

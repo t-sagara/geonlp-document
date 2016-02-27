@@ -38,9 +38,9 @@ array (
               0 => 
               array (
                 'geonlp_id' => 'ALRYpP',
-                'latitude' => 35.693932,
+                'latitude' => 35.689499,
                 'level' => 1,
-                'longitude' => 139.75354,
+                'longitude' => 139.691635,
                 'name' => '東京都',
               ),
               1 => 
@@ -53,7 +53,6 @@ array (
               ),
               2 => 
               array (
-                'geonlp_id' => '8G80mm',
                 'latitude' => 35.691635,
                 'level' => 5,
                 'longitude' => 139.756683,
@@ -76,8 +75,6 @@ array (
             ),
             'code' => 
             array (
-              'isj' => '131010001999',
-              'jisx0401' => '13',
               'jisx0402' => '13101',
               'lasdec' => '131016',
             ),
@@ -100,8 +97,8 @@ array (
           array (
             'coordinates' => 
             array (
-              0 => 139.758665,
-              1 => 35.69605,
+              0 => 139.758428,
+              1 => 35.694893,
             ),
             'type' => 'Point',
           ),
@@ -110,16 +107,16 @@ array (
             'body' => '神保町',
             'body_kana' => 'ジンボウチョウ',
             'dictionary_id' => 31,
-            'entry_id' => 'eb03_6366',
-            'geonlp_id' => '7jSL63',
+            'entry_id' => 'eb03_6358',
+            'geonlp_id' => 'rQ1HpF',
             'hypernym' => 
             array (
               0 => '東京都',
-              1 => '新宿線',
+              1 => '三田線',
             ),
             'kana' => 'ジンボウチョウエキ',
-            'latitude' => '35.69605',
-            'longitude' => '139.758665',
+            'latitude' => '35.6948933333333',
+            'longitude' => '139.758428333333',
             'name' => '神保町駅',
             'ne_class' => '鉄道施設/地下鉄駅',
             'railway_type' => '12',

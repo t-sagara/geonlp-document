@@ -16,4 +16,4 @@ $request = array(
 );
 
 $response = jsonrpc_exec(json_encode($request));
-var_export($response);
+echo $response, "\n";
