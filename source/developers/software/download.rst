@@ -16,7 +16,7 @@
 
 GeoNLP ソフトウェアのソースコードは以下のリンクからダウンロードできます。
 
-`GeoNLP software version 1.1.1 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.1.1.tgz>`_
+`GeoNLP software version 1.2.0 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.2.0.tgz>`_
 
 `GeoNLP software version 1.1.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.1.0.tgz>`_
 
@@ -43,7 +43,7 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 
 1.1.0 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
 
-1.1.1 から、API のレスポンスフォーマットが GeoJSON に合わせて変更されたため、従来のプログラムがそのままでは動かない可能性があります。
+1.2.0 から、API のレスポンスフォーマットが GeoJSON に合わせて変更されたため、従来のプログラムがそのままでは動かない可能性があります。
 
 関連ファイルのダウンロード
 ===================================================
@@ -55,7 +55,7 @@ PHP バインディングは上記ソースコードに同梱されています�
 更新履歴
 ===================================================
 
-Ver. 1.1.1
+Ver. 1.2.0
 
   :ref:`spatio-temporal` フィルタ機能を追加
   

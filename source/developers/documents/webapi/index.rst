@@ -10,7 +10,7 @@ GeoNLP WebAPI のメソッドのリファレンスです。
 
 仕様変更については :ref:`webapi_news` を参照してください。最近のお知らせは以下の通りです。
 
-* :ref:`webapi_news_20160229`
+* :ref:`webapi_news_20160303`
 * :ref:`dist_server` 機能の追加(2015-03-27)
 * :ref:`webapi_news_20140101`
 
