@@ -47,7 +47,7 @@ PHP
   :ref:`software_dic_util` を利用する場合には PHP 5.3 以降が必要です。
 
 GDAL
-  :ref:`webapi_parse_option_geotime_filter` 機能のうち、geo- フィルタを利用する場合には `GDAL <http://www.gdal.org>`_ 1.x 系が必要です。
+  :ref:`webapi_parse_option_geotime_filter` 機能のうち、geo- フィルタを利用する場合には `GDAL <http://www.gdal.org>`_ 1.x 系が必要です。利用しない場合は configure の際に --without-gdal を指定してください。
 
 DAMS
   オープンソースのジオコーダライブラリです。インストールは必須ではありませんが、インストールされていない場合は住所文字列の抽出とジオコーディング機能が無効になります。バージョン 4.3.4 で動作を確認しています。
@@ -80,6 +80,18 @@ DAMS を利用するかしないかを configure の --with-dams オプション
 
 ディレクトリを指定する場合には、 DAMS の configure 時に prefix で指定した値を与えてください。デフォルトは /usr/local で、 /usr/local/lib ではない点に注意してください。 --with-dams オプションを省略した場合、デフォルトディレクトリに DAMS がインストールされていれば利用し、それ以外の場合は利用しません。
 
+GDAL の利用指定 (ver. 1.2.0 以降のみ有効)
+----------------------------------------------------
+
+GDAL を利用するかしないかを configure の --with-gdal オプションで指定できます。利用しない場合には --with-gdal=no または --without-gdal を指定してください。
+
+.. sourcecode:: bash
+
+  % ./configure --without-gdal
+
+GDAL を利用しないでコンパイルした場合は :ref:`webapi_parse_option_geotime_filter` が利用できなくなります。
+
+GDAL を利用する場合、ヘッダファイルやライブラリの位置は gdal-config コマンドを実行して取得します。 gdal-config に実行パスが通っていれば自動的に見つけますが、 --with-gdal-config=/foo/bar/gdal-config のように指定することもできます。
 
 ライブラリ、ヘッダファイルの場所指定
 ----------------------------------------------------
