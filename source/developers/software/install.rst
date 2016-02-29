@@ -14,7 +14,7 @@ apt, yum などのパッケージマネージャを利用してインストー�
 OS
   UNIX系のOSが必要です。Windowsには対応していません。
 
-  CentOS 6.7, CentOS 7.2, Ubuntu 14.04 で動作を確認しています。CentOS でのインストール手順は :ref:`software_install_centos` を、 Ubuntu 14.04 でのインストール手順は :ref:`software_install_ubuntu` をご覧ください。
+  CentOS 6.7, CentOS 7.2, Ubuntu 14.04 で動作を確認しています。CentOS でのインストール手順は :ref:`software_install_centos` を、 Ubuntu 14.04 でのインストール手順は :ref:`software_install_debian` をご覧ください。
 
 GNU C++
   プログラムのコンパイルに GNU C++ (g++) が必要です。バージョン 4.1.2
@@ -38,7 +38,7 @@ MeCab 用の辞書
   <http://sourceforge.jp/projects/naist-jdic/>`_ (推奨)
 
   `IPA 辞書
-  <http://code.google.com/p/mecab/downloads/detail?name=mecab-ipadic-2.7.0-20070801.tar.gz>`_
+  <https://sourceforge.net/projects/mecab/files/mecab-ipadic/2.7.0-20070801/>`_
 
 SQLite3
   ファイルベースの SQL データベース管理システムです。バージョン 3.4 以降で動作を確認しています。

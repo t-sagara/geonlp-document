@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Leaflet+GeoNLP Example</title>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<textarea id="textarea" rows="5" style="width:600px">今日は東京都全域で雨が降りました。</textarea><br />
+<input type="button" id="submit" value="解析" /><br />
+<div id="map" style="width: 600px; height: 400px"></div>
+
+<script>
+var map = L.map('map').setView([35.7, 139.7], 8);
+L.tileLayer('http://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png', {
+  attribution: "<a href='http://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>"
+}).addTo(map);
+
+geojsonMarkerOptions = {
+  radius: 8,
+  fillColor: "#ff7800",
+  color: "#000",
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8
+};
+
+var pointLayer = null;
+$("#submit").click(function() {
+  var request = {"method":"parse", "params":[$("textarea").val()], "id":0};
+  var request_json = JSON.stringify(request);
+  $.ajax({
+    type: "POST",
+    url: "/cgi-bin/geonlp_cgi",
+    data: request_json,
+    dataType: "JSON"
+  }).done(function(json) {
+    if (pointLayer) map.removeLayer(pointLayer);
+    pointLayer = L.geoJson(json['result'], {
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng, geojsonMarkerOptions);
+      }
+    });
+    map.addLayer(pointLayer);
+  }).fail(function(data) {
+    alert(data);
+  });
+});
+
+</script>
+
+</body>
+</html>

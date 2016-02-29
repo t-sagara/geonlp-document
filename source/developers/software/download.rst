@@ -50,7 +50,9 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 
 PHP バインディングは上記ソースコードに同梱されています。
 
-:ref:`geonlp_terms_dictionary` は `GeoNLP Data サイト <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードできます。ダウンロードした辞書を手作業でインポートする手順は :ref:`quick_import_data` を参照してください。
+:ref:`geonlp_terms_dictionary` は `GeoNLP Data サイト <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードできます。ダウンロードした辞書を手作業でインポートする手順は :ref:`quick_import_data` を参照してください。 :ref:`software_dic_util` を利用することで、この作業をある程度自動化することができます。
+
+
 
 更新履歴
 ===================================================
