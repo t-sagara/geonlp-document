@@ -24,6 +24,11 @@ GeoNLP WebAPI では `JSON-RPC <http://json-rpc.org/>`_ を利用します。
 JSON 表現については :ref:`json` を、それぞれの項目の意味については
 :ref:`datamodel` を参照してください。
 
+WebAPI サーバ URL
+================================================
+
+最新のリクエスト先 URL（エンドポイント）は https://dias.ex.nii.ac.jp/geonlp/api/1/geo-tagging です。
+（この URL は JSON-RPC サーバですので、ウェブブラウザで開いても何も起こりません。）
 
 WebAPI メソッド一覧
 ================================================
@@ -59,4 +64,6 @@ WebAPI メソッド一覧
 WebAPI のテスト
 ================================================
 
-`WebAPI Checker <../../../_static/test.php>`_
+WebAPI が思った通りに機能しない場合は、 WebAPI Console で動作を確認してください。
+
+`WebAPI Console <../../../_static/web_api_console.html>`_

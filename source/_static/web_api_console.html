@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999.xhtml" xml:lang="ja" lang="ja">
+<head>
+  <title>GeoNLP WebAPI Console</title>
+  <meta charset="utf-8" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>GeoNLP WebAPI Console</h1>
+
+<div class="main">
+<h3>サーバ設定</h3>
+endpoint URL: <input id="server_url" size="50" value="" />
+
+<h3>Request</h3>
+<textarea id="request" rows="10" cols="80">
+{
+  "method": "geonlp.parse",
+  "params":
+    [
+      "NIIは千代田区一ツ橋２－１－２にあります。神保町から徒歩3分。",
+      { "geocoding":true,
+        "remove-class":[".*Station"]
+      }
+    ],
+  "id": "1"
+}
+</textarea><br />
+<input id="submit" type="button" value="Send Request" />
+<input id="clear" type="button" value="Clear" />
+
+<h3>Response</h3>
+<textarea id="response" rows="10" cols="80">
+</textarea><div id="footer">
+</div> <!-- class="main" -->
+
+<div class="footer">
+&copy; 2016 National Institute of Information, All Right Reserved.
+</div> <!-- class="footer" -->
+
+<script>
+
+function suggest_server_url () {
+  var server_protocol = window.location.protocol;
+  var server_hostname = window.location.hostname;
+  var server_port = window.location.port;
+  if ((server_protocol == 'https:' && server_port == 443) && (server_protocol == 'http:' && server_port == 80)) {
+    server_port = null;
+  }
+  var server_url = server_protocol + '//' + server_hostname;
+  if (server_port) server_url += ':' + server_port;
+  server_url += '/cgi-bin/geonlp_cgi';
+  $("#server_url").val(server_url);
+}
+
+function query() {
+  var request_json = $("#request").val();
+  var request_obj;
+  try {
+    request_obj = JSON.parse(request_json);
+  } catch (e) {
+    $("#response").val(e.message);
+    return;
+  }
+  request_json = JSON.stringify(request_obj, null, 2);
+  $("#request").val(request_json);
+  
+  var endpoint = $("#server_url").val();
+  var api_key = $("#api_key").val();
+  
+  $.ajax({
+    type: "POST",
+    url: endpoint,
+    data: request_json,
+    dataType: "JSON",
+    headers: {
+     "X-GeoNLP-Authorization": api_key
+    }
+  }).done(function(response_obj) {
+    var response_json = JSON.stringify(response_obj, null, 2);
+    $("#response").val(response_json);
+  }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+    var message = 'XMLHttpRequest:"' + XMLHttpRequest.status + '", ';
+    message += 'textStatus:"' + textStatus + '", ';
+    message += 'errorThrown:"' + errorThrown + '"';
+    $("#response").val(message);
+  });
+}
+
+suggest_server_url();
+$("#submit").click(function() { query(); });
+$("#clear").click(function() { $("#request").val(); });
+</script>
+
+</body>
+</html>
