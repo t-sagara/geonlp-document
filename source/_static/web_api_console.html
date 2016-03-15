@@ -3,14 +3,31 @@
 <head>
   <title>GeoNLP WebAPI Console</title>
   <meta charset="utf-8" />
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 <body>
 <h1>GeoNLP WebAPI Console</h1>
 
 <div class="main">
 <h3>サーバ設定</h3>
-endpoint URL: <input id="server_url" size="50" value="" />
+<table style="border:none"><tbody>
+<tr>
+  <th>WebAPI サーバ:</th>
+  <td><select id="api_server">
+    <option value="public" selected="selected">Public Server</option>
+    <option value="local">Local Server</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <th>endpoint URL:</th>
+  <td><input id="server_url" size="50" value="https://dias.ex.nii.ac.jp/geonlp/api/1/geo-tagging" /></td>
+</tr>
+<tr>
+  <th>API key:</th>
+  <td><input id="api_key" size="50" value="" placeholder="Required to use the Public WebAPI server" /></td>
+</tr>
+</table>
 
 <h3>Request</h3>
 <textarea id="request" rows="10" cols="80">
@@ -19,7 +36,7 @@ endpoint URL: <input id="server_url" size="50" value="" />
   "params":
     [
       "NIIは千代田区一ツ橋２－１－２にあります。神保町から徒歩3分。",
-      { "geocoding":true, "geojson":true }
+      { "geocoding":true }
     ],
   "id": "1"
 }
@@ -85,9 +102,18 @@ function query() {
   });
 }
 
-suggest_server_url();
+$("#api_server").change(function() {
+  var server = $("#api_server").val();
+  if (server == "public") {
+    $("#server_url").val("https://dias.ex.nii.ac.jp/geonlp/api/1/geo-tagging");
+    $("#api_key").removeAttr("disabled");
+  } else {
+    suggest_server_url();
+    $("#api_key").attr("disabled", "disabled");
+  }
+});
 $("#submit").click(function() { query(); });
-$("#clear").click(function() { $("#request").val(""); });
+$("#clear").click(function() { $("#request").val(); });
 </script>
 
 </body>
