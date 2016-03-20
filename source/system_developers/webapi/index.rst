@@ -61,4 +61,4 @@ WebAPI のテスト
 
 WebAPI が思った通りに機能しない場合は、 WebAPI Console で動作を確認してください。
 
-`WebAPI Console <../../../_static/web_api_console.html>`_
+`WebAPI Console <../../_static/web_api_console.html>`_
