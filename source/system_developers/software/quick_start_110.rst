@@ -39,7 +39,7 @@ GeoNLP の全ての解析機能は、コードを書かなくてもコマンド�
   $ echo '{"method":"geonlp.search","params":["塩竃市"], "id":2}' | geonlp_api
   {"error":null,"id":2,"result":{"6DuiMk":{"address":"塩竈市旭町１－１","body":"塩竈","body_kana":"シオガマ","code":{"jisx0402":"04203","lasdec":"042030"},"dictionary_id":29,"entry_id":"04203","fullname":"塩竈市","geonlp_id":"6DuiMk","hypernym":["宮城県"],"latitude":"38.31428","longitude":"141.02248","ne_class":"市区町村\/市","suffix":["市",""],"suffix_kana":["シ",""],"tel":"022-364-1111"}}}
 
-.. _quick_getinfo:
+.. _quick_getinfo_110:
 
 geonlp_id から地名語を検索する
 ----------------------------------------------------

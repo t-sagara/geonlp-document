@@ -1,40 +1,8 @@
-.. _software_download:
+.. _software_news:
 
 ====================================================
-ダウンロード
+GeoNLP ソフトウェアをインストールする方へ
 ====================================================
-
-ご利用前の確認事項
-====================================================
-
-*GeoNLP ソフトウェア* を利用するには、UNIX 系の OS、GNU C++ を含む開発環境、コンパイル手順などの知識が必要です。詳細は :ref:`software_install` を参照してください。
-
-*GeoNLP ソフトウェア* は FreeBSD ライセンスに基づくオープンソースのフリーソフトウェアです。詳細は :ref:`software_license` を参照してください。
-
-ファイルダウンロード
-===================================================
-
-GeoNLP ソフトウェアのソースコードは以下のリンクからダウンロードできます。
-
-`GeoNLP software version 1.2.0 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.2.0.tgz>`_
-
-`GeoNLP software version 1.1.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.1.0.tgz>`_
-
-`GeoNLP software version 1.0.7 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.7.tgz>`_
-
-`GeoNLP software version 1.0.6 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.6.tgz>`_
-
-`GeoNLP software version 1.0.5 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.5.tgz>`_
-
-`GeoNLP software version 1.0.4 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.4.tgz>`_
-
-`GeoNLP software version 1.0.3 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.3.tgz>`_
-
-`GeoNLP software version 1.0.2 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.2.tgz>`_
-
-`GeoNLP software version 1.0.1 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.1.tgz>`_
-
-`GeoNLP software version 1.0.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.0.0.tgz>`_
 
 バージョンの違いによる注意事項
 --------------------------------------------------
@@ -44,14 +12,6 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 1.1.0 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
 
 1.2.0 から、API のレスポンスフォーマットが GeoJSON に合わせて変更されたため、従来のプログラムがそのままでは動かない可能性があります。
-
-関連ファイルのダウンロード
-===================================================
-
-PHP バインディングは上記ソースコードに同梱されています。
-
-:ref:`geonlp_terms_dictionary` は `GeoNLP Data サイト <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードできます。ダウンロードした辞書を手作業でインポートする手順は :ref:`quick_import_data` を参照してください。 :ref:`software_dic_util` を利用することで、この作業をある程度自動化することができます。
-
 
 
 更新履歴

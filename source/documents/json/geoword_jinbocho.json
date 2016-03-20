@@ -1,0 +1,36 @@
+{
+    "geometry": {
+	"coordinates": [
+	    139.758428,
+	    35.694893
+	],
+	"type": "Point"
+    },
+    "properties": {
+	"body": "神保町",
+	"body_kana": "ジンボウチョウ",
+	"dictionary_id": 31,
+	"entry_id": "eb03_6358",
+	"geonlp_id": "rQ1HpF",
+	"hypernym": [
+	    "東京都",
+	    "三田線"
+	],
+	"kana": "ジンボウチョウエキ",
+	"latitude": "35.6948933333333",
+	"longitude": "139.758428333333",
+	"name": "神保町駅",
+	"ne_class": "鉄道施設/地下鉄駅",
+	"railway_type": "12",
+	"service_provider_type": "3",
+	"suffix": [
+	    "駅",
+	    ""
+	],
+	"suffix_kana": [
+	    "エキ",
+	    ""
+	]
+    },
+    "type": "Feature"
+}

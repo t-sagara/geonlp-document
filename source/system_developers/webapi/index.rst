@@ -8,11 +8,7 @@ GeoNLP WebAPI のメソッドのリファレンスです。
 
 はじめてお使いになる場合は、必ず :ref:`webapi_readme` をお読みください。
 
-仕様変更については :ref:`webapi_news` を参照してください。最近のお知らせは以下の通りです。
-
-* :ref:`webapi_news_20160303`
-* :ref:`dist_server` 機能の追加(2015-03-27)
-* :ref:`webapi_news_20140101`
+仕様変更については :ref:`webapi_news` を参照してください。
 
 概要
 ================================================
@@ -58,7 +54,6 @@ WebAPI メソッド一覧
 
    readme_first
    apikey
-   news
 
 
 WebAPI のテスト

@@ -1,7 +1,7 @@
 .. _webapi_news:
 
 ================================================
-お知らせ
+WebAPI サーバを利用する方へ
 ================================================
 
 .. _webapi_news_20160303:
@@ -38,4 +38,3 @@ API key の取得方法については :ref:`apikey` をご覧ください。
 
   [wget コマンドでのリクエスト例]
   wget --header="Content-Type: application/json" --header="X-GeoNLP-Authorization: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --post-data='{"method":"geonlp.parse","params":["NIIは千代田区一ツ橋１－２－１にあります。神保町駅から徒歩3分。"],"id":1}' https://dias.ex.nii.ac.jp/geonlp/api/1/geo-tagging
-
