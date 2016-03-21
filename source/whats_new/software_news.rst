@@ -11,7 +11,6 @@ GeoNLP ソフトウェアをインストールする方へ
 
 1.1.0 以降は対話的な :ref:`software_dic_util` が同梱されていますので、そちらを利用して辞書をダウンロード、インストールしてください。
 
-1.2.0 から、API のレスポンスフォーマットが GeoJSON に合わせて変更されたため、従来のプログラムがそのままでは動かない可能性があります。
 
 
 更新履歴
@@ -21,7 +20,10 @@ Ver. 1.2.0
 
   :ref:`webapi_parse_option_geotime_filter` を追加
   
-  :ref:`webapi_parse` , :ref:`webapi_parseStructured` API のレスポンスフォーマットを GeoJSON 準拠に変更。
+  :ref:`webapi_parse_option` に "geojson" を追加。true にセットした場合、
+  :ref:`webapi_parse` , :ref:`webapi_parseStructured` API のレスポンスを GeoJSON 準拠の :ref:`webapi_response_feature_collection` に変更できる。
+
+  今後このレスポンス形式を推奨します。
 
 Ver. 1.1.0
 
