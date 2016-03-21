@@ -15,6 +15,20 @@ parse オプション
 
 オプションで利用可能なキーとその意味は以下の通り。
 
+geojson (version 1.2.0)
++++++++++++++++++++++++++++++++++++++++++++++
+
+:name: geojson
+:type: bool
+:default: false
+:例: "geojson":true
+
+レスポンスを GeoJSON の FeatureCollection 型に変更する。
+
+*false* を指定した場合、 :ref:`webapi_response_feature_array` を返す。
+
+*true* を指定した場合、 :ref:`webapi_response_feature_collection` を返す。
+
 show-candidate
 +++++++++++++++++++++++++++++++++++++++++++++
 

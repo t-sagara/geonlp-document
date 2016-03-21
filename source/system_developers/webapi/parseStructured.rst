@@ -4,7 +4,6 @@
 parseStructured
 ================================================
 
-バージョン1.1.0 以前の説明は :ref:`webapi_parseStructured_110` へ。
 
 説明
 ---------------------------------------
@@ -56,34 +55,6 @@ object **geonlp.parseStructured** (string[] *sentences* [, object *options*])
 
 処理結果の構造化テキストを返す（ :ref:`webapi_parse` と同じ）。
 
-レスポンスの例
-++++++++++++++++++++++++++++++++++++++++
-.. literalinclude:: php/parseStructured_result.json
-   :language: javascript
-
-PHP サンプルコード
----------------------------------------
-
-jsonrpc_client.php
-+++++++++++++++++++++++++++++++++++++++
-:download:`ダウンロード <php/jsonrpc_client.php.txt>`
-
-.. literalinclude:: php/jsonrpc_client.php.txt
-   :language: php
-
-parseStructured.php
-+++++++++++++++++++++++++++++++++++++++
-:download:`ダウンロード <php/parseStructured.php.txt>`
-
-.. literalinclude:: php/parseStructured.php.txt
-   :language: php
-
-実行結果
-+++++++++++++++++++++++++++++++++++++++
-
-.. code-block:: php
-
-  $ php parseStructured.php
-
-.. literalinclude:: php/parseStructured_result.txt
-   :language: php
+レスポンスの形式は、 :ref:`webapi_parse_option` の "geojson" が true
+にセットされている場合は
+:ref:`webapi_response_feature_collection` を、未指定または false がセットされている場合は :ref:`webapi_response_feature_array` に従う。

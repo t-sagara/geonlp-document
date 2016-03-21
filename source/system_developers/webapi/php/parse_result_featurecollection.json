@@ -1,0 +1,123 @@
+
+r": null,
+  "id": "1",
+  "result": {
+    "features": [
+      {
+        "geometry": null,
+        "properties": {
+          "surface": "NIIは"
+        },
+        "type": "Feature"
+      },
+      {
+        "geometry": {
+          "coordinates": [
+            139.756927,
+            35.692795
+          ],
+          "type": "Point"
+        },
+        "properties": {
+          "address": [
+            {
+              "geonlp_id": "ALRYpP",
+              "latitude": 35.689499,
+              "level": 1,
+              "longitude": 139.691635,
+              "name": "東京都"
+            },
+            {
+              "geonlp_id": "51sMnl",
+              "latitude": 35.693932,
+              "level": 3,
+              "longitude": 139.75354,
+              "name": "千代田区"
+            },
+            {
+              "geonlp_id": "8G80mm",
+              "latitude": 35.691635,
+              "level": 5,
+              "longitude": 139.756683,
+              "name": "一ツ橋"
+            },
+            {
+              "latitude": 35.692947,
+              "level": 6,
+              "longitude": 139.757324,
+              "name": "二丁目"
+            },
+            {
+              "latitude": 35.692795,
+              "level": 7,
+              "longitude": 139.756927,
+              "name": "１番"
+            }
+          ],
+          "code": {
+            "isj": "131010001999",
+            "jisx0402": "13101",
+            "lasdec": "131016"
+          },
+          "name": "東京都千代田区一ツ橋二丁目１番",
+          "standard_form": "東京都千代田区一ツ橋二丁目１番",
+          "surface": "千代田区一ツ橋２－１－"
+        },
+        "type": "Feature"
+      },
+      {
+        "geometry": null,
+        "properties": {
+          "surface": "２にあります。"
+        },
+        "type": "Feature"
+      },
+      {
+        "geometry": {
+          "coordinates": [
+            139.75742,
+            35.696017
+          ],
+          "type": "Point"
+        },
+        "properties": {
+          "body": "神保町",
+          "body_kana": "ジンボウチョウ",
+          "dictionary_id": 31,
+          "entry_id": "eb03_6365",
+          "geonlp_id": "pnTSo0",
+          "hypernym": [
+            "東京都",
+            "新宿線"
+          ],
+          "kana": "ジンボウチョウエキ",
+          "latitude": "35.6960166666667",
+          "longitude": "139.75742",
+          "name": "神保町駅",
+          "ne_class": "鉄道施設/地下鉄駅",
+          "railway_type": "12",
+          "service_provider_type": "3",
+          "suffix": [
+            "駅",
+            ""
+          ],
+          "suffix_kana": [
+            "エキ",
+            ""
+          ],
+          "surface": "神保町"
+        },
+        "type": "Feature"
+      },
+      {
+        "geometry": null,
+        "properties": {
+          "surface": "から徒歩3分。"
+        },
+        "type": "Feature"
+      }
+    ],
+    "type": "FeatureCollection"
+  }
+}
+

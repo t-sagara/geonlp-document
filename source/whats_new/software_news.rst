@@ -19,7 +19,7 @@ GeoNLP ソフトウェアをインストールする方へ
 
 Ver. 1.2.0
 
-  :ref:`spatio-temporal` フィルタ機能を追加
+  :ref:`webapi_parse_option_geotime_filter` を追加
   
   :ref:`webapi_parse` , :ref:`webapi_parseStructured` API のレスポンスフォーマットを GeoJSON 準拠に変更。
 

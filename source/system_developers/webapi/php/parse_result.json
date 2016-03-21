@@ -1,20 +1,16 @@
 {
   "error":null,
-  "id":"1",
-  "result":{
-    "features":[
-      {
-        "geometry":null,
-        "properties":{
-          "surface":"NIIは"
-        },
-        "type":"Feature"
-      },
-      {
+  "id":1,
+  "result":[
+    {
+      "surface":"NIIは"
+    },
+    {
+      "geo":{
         "geometry":{
           "coordinates":[
-            139.756927,
-            35.692795
+            139.758606,
+            35.691406
           ],
           "type":"Point"
         },
@@ -22,9 +18,9 @@
           "address":[
             {
               "geonlp_id":"ALRYpP",
-              "latitude":35.689499,
+              "latitude":35.693932,
               "level":1,
-              "longitude":139.691635,
+              "longitude":139.753540,
               "name":"東京都"
             },
             {
@@ -35,6 +31,7 @@
               "name":"千代田区"
             },
             {
+              "geonlp_id":"8G80mm",
               "latitude":35.691635,
               "level":5,
               "longitude":139.756683,
@@ -47,13 +44,15 @@
               "name":"二丁目"
             },
             {
-              "latitude":35.692795,
+              "latitude":35.691406,
               "level":7,
-              "longitude":139.756927,
+              "longitude":139.758606,
               "name":"１番"
             }
           ],
           "code":{
+            "isj":"131010001999",
+            "jisx0401":"13",
             "jisx0402":"13101",
             "lasdec":"131016"
           },
@@ -62,18 +61,17 @@
         },
         "type":"Feature"
       },
-      {
-        "geometry":null,
-        "properties":{
-          "surface":"２にあります。"
-        },
-        "type":"Feature"
-      },
-      {
+      "surface":"千代田区一ツ橋２－１－"
+    },
+    {
+      "surface":"２にあります。"
+    },
+    {
+      "geo":{
         "geometry":{
           "coordinates":[
-            139.758428,
-            35.694893
+            139.758665,
+            35.696050
           ],
           "type":"Point"
         },
@@ -81,15 +79,15 @@
           "body":"神保町",
           "body_kana":"ジンボウチョウ",
           "dictionary_id":31,
-          "entry_id":"eb03_6358",
-          "geonlp_id":"rQ1HpF",
+          "entry_id":"eb03_6366",
+          "geonlp_id":"7jSL63",
           "hypernym":[
             "東京都",
-            "三田線"
+            "新宿線"
           ],
           "kana":"ジンボウチョウエキ",
-          "latitude":"35.6948933333333",
-          "longitude":"139.758428333333",
+          "latitude":"35.69605",
+          "longitude":"139.758665",
           "name":"神保町駅",
           "ne_class":"鉄道施設/地下鉄駅",
           "railway_type":"12",
@@ -105,14 +103,10 @@
         },
         "type":"Feature"
       },
-      {
-        "geometry":null,
-        "properties":{
-          "surface":"から徒歩3分。"
-        },
-        "type":"Feature"
-      }
-    ],
-    "type":"FeatureCollection"
-  }
+      "surface":"神保町"
+    },
+    {
+      "surface":"から徒歩3分。"
+    }
+  ]
 }

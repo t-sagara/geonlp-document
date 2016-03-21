@@ -8,6 +8,8 @@ JSON表現
 
 ここではこれらの情報の JSON 表現について説明します。
 
+.. _json_geoword:
+
 地名語のJSON表現
 ================================================
 
@@ -21,6 +23,8 @@ JSON表現
 .. literalinclude:: geoword_jinbocho.json
    :language: javascript
 
+
+.. _json_dictionary:
 
 地名解析辞書のJSON表現
 ================================================
@@ -42,6 +46,8 @@ JSON表現
 
 .. literalinclude:: dictionary_city.json
    :language: javascript
+
+.. _json_address:
 
 住所のJSON表現
 ================================================

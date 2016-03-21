@@ -4,7 +4,6 @@
 parse
 ================================================
 
-バージョン1.1.0 以前の説明は :ref:`webapi_parse_110` へ。
 
 説明
 ---------------------------------------
@@ -53,39 +52,7 @@ object **geonlp.parse** (string[] *sentences* [, object *options*])
 ---------------------------------------
 
 処理結果の構造化テキストを返す。
-構造化テキストは、地名語以外の文字列はジオメトリに null を、地名語部分は Point 型のジオメトリをもつ複数の GeoJSON オブジェクトから構成された、1つのフィーチャーコレクションオブジェクト。
 
-地名語を含む GeoJSON オブジェクトは、 properties メンバーに :ref:`json_geoword` か :ref:`json_address` を持つ。地名語ではない場合、properties には元の文章中の文字列が含まれる。
-
-レスポンスの例
-++++++++++++++++++++++++++++++++++++++++
-
-.. literalinclude:: php/parse_result.json
-   :language: javascript
-
-PHP サンプルコード
----------------------------------------
-
-jsonrpc_client.php
-+++++++++++++++++++++++++++++++++++++++
-:download:`ダウンロード <php/jsonrpc_client.php.txt>`
-
-.. literalinclude:: php/jsonrpc_client.php.txt
-   :language: php
-
-parse.php
-+++++++++++++++++++++++++++++++++++++++
-:download:`ダウンロード <php/parse.php.txt>`
-
-.. literalinclude:: php/parse.php.txt
-   :language: php
-
-実行結果
-+++++++++++++++++++++++++++++++++++++++
-
-.. code-block:: bash
-
-  $ php parse.php
-
-.. literalinclude:: php/parse_result.txt
-   :language: php
+レスポンスの形式は、 :ref:`webapi_parse_option` の "geojson" が true
+にセットされている場合は
+:ref:`webapi_response_feature_collection` を、未指定または false がセットされている場合は :ref:`webapi_response_feature_array` に従う。

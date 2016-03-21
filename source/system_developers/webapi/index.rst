@@ -40,6 +40,8 @@ WebAPI メソッド一覧
    getDictionaryInfo
    addressGeocoding
    parse-option
+   response_feature_array
+   response_feature_collection
    dist-server
 
 ..   getCodeKeys
