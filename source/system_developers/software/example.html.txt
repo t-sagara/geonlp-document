@@ -33,7 +33,7 @@ geojsonMarkerOptions = {
 
 var pointLayer = null;
 $("#submit").click(function() {
-  var request = {"method":"parse", "params":[$("textarea").val()], "id":0};
+  var request = {"method":"parse", "params":[$("textarea").val(),{"geojson":true}], "id":0};
   var request_json = JSON.stringify(request);
   $.ajax({
     type: "POST",
