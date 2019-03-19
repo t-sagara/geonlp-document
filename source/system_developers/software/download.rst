@@ -14,9 +14,14 @@
 ファイルダウンロード
 ===================================================
 
-GeoNLP ソフトウェアのソースコードは以下のリンクからダウンロードできます。
+GeoNLP software version 1.3.0 以降は GitHub からダウンロードできます。
 
-`GeoNLP software version 1.2.0 (最新) <https://geonlp.ex.nii.ac.jp/software/geonlp-1.2.0.tgz>`_
+`GeoNLP software <https://github.com/t-sagara/geonlp-software>`_
+
+
+GeoNLP ソフトウェアの過去のバージョンのソースコードは以下のリンクからダウンロードできます。
+
+`GeoNLP software version 1.2.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.2.0.tgz>`_
 
 `GeoNLP software version 1.1.0 <https://geonlp.ex.nii.ac.jp/software/geonlp-1.1.0.tgz>`_
 
@@ -46,7 +51,7 @@ GeoNLP ソフトウェアのソースコードは以下のリンクからダウ�
 関連ファイルのダウンロード
 ===================================================
 
-PHP バインディングは上記ソースコードに同梱されています。
+Python 拡張モジュール(1.3.0以降)、 PHP バインディングは上記ソースコードに同梱されています。
 
 :ref:`geonlp_terms_dictionary` は `GeoNLP Data サイト <https://geonlp.ex.nii.ac.jp/>`_ から検索してダウンロードできます。ダウンロードした辞書を手作業でインポートする手順は :ref:`quick_import_data` を参照してください。 :ref:`software_dic_util` を利用することで、この作業をある程度自動化することができます。
 

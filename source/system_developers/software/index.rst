@@ -41,4 +41,5 @@ Ver. 1.0.5 より、 `東京大学空間情報科学研究センターから公�
    quick_start
    advanced
    command
+   python_api
    php_api

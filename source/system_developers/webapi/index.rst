@@ -39,6 +39,7 @@ WebAPI メソッド一覧
    getDictionaries
    getDictionaryInfo
    addressGeocoding
+   analyze
    parse-option
 
 ..   getCodeKeys
