@@ -21,7 +21,7 @@ JSON表現
 ------------------------------------------------
 
 .. literalinclude:: geoword_jinbocho.json
-   :language: javascript
+   :language: json
 
 
 .. _json_dictionary:
@@ -40,12 +40,12 @@ JSON表現
 都道府県辞書の例
 
 .. literalinclude:: dictionary_pref.json
-   :language: javascript
+   :language: json
 
 市区町村辞書の例
 
 .. literalinclude:: dictionary_city.json
-   :language: javascript
+   :language: json
 
 .. _json_address:
 
@@ -60,4 +60,4 @@ JSON表現
 ------------------------------------------------
 
 .. literalinclude:: address.json
-   :language: javascript
+   :language: json
