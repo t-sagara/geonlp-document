@@ -2,7 +2,7 @@ Quickstart
 ================
 
 ここでは pygeonlp の簡単な使い方を紹介します。
-もしまだ pygeonlp をインストールしていないのであれば、
+まだ pygeonlp をインストールしていない場合は、
 :ref:`install_pygeonlp` に従ってインストールしてください。
 
 最小限のサンプル
@@ -32,7 +32,7 @@ pygeonlp を使って自然文テキストから地名を抽出する最小コ�
 
   [{'type': 'Feature', 'geometry': None, 'properties': {'surface': 'NII', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '*', 'pos': '名詞', 'prononciation': '', 'subclass1': '固有名詞', 'subclass2': '組織', 'subclass3': '*', 'surface': 'NII', 'yomi': ''}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': 'は', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': 'は', 'pos': '助詞', 'prononciation': 'ワ', 'subclass1': '係助詞', 'subclass2': '*', 'subclass3': '*', 'surface': 'は', 'yomi': 'ハ'}}}, {'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [139.757845, 35.6960275]}, 'properties': {'surface': '神保町駅', 'node_type': 'GEOWORD', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '神保町駅', 'pos': '名詞', 'prononciation': '', 'subclass1': '固有名詞', 'subclass2': '地名語', 'subclass3': '82wiE0:神保町駅', 'surface': '神保町駅', 'yomi': ''}, 'geoword_properties': {'body': '神保町', 'dictionary_id': 3, 'entry_id': '2891e10e9314a0b378fac6aace6d2a7f', 'geolod_id': '82wiE0', 'hypernym': ['東京都', '10号線新宿線'], 'institution_type': '公営鉄道', 'latitude': '35.6960275', 'longitude': '139.757845', 'ne_class': '鉄道施設/鉄道駅', 'railway_class': '普通鉄道', 'suffix': ['駅', ''], 'dictionary_identifier': 'geonlp:ksj-station-N02-2019'}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': 'から', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': 'から', 'pos': '助詞', 'prononciation': 'カラ', 'subclass1': '格助詞', 'subclass2': '一般', 'subclass3': '*', 'surface': 'から', 'yomi': 'カラ'}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': '徒歩', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '徒歩', 'pos': '名詞', 'prononciation': 'トホ', 'subclass1': '一般', 'subclass2': '*', 'subclass3': '*', 'surface': '徒歩', 'yomi': 'トホ'}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': '7', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '*', 'pos': '名詞', 'prononciation': '', 'subclass1': '数', 'subclass2': '*', 'subclass3': '*', 'surface': '7', 'yomi': ''}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': '分', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '分', 'pos': '名詞', 'prononciation': 'フン', 'subclass1': '接尾', 'subclass2': '助数詞', 'subclass3': '*', 'surface': '分', 'yomi': 'フン'}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': 'です', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '特殊・デス', 'conjugation_type': '基本形', 'original_form': 'です', 'pos': '助動詞', 'prononciation': 'デス', 'subclass1': '*', 'subclass2': '*', 'subclass3': '*', 'surface': 'です', 'yomi': 'デス'}}}, {'type': 'Feature', 'geometry': None, 'properties': {'surface': '。', 'node_type': 'NORMAL', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '。', 'pos': '記号', 'prononciation': '。', 'subclass1': '句点', 'subclass2': '*', 'subclass3': '*', 'surface': '。', 'yomi': '。'}}}]
 
-このままでは見にくいので、 JSON にして整形表示するように少し修正します。
+このままでは見にくいので、 JSON で整形表示するように少し修正します。
 
 .. code-block:: python3
 
@@ -262,7 +262,7 @@ pygeonlp を使って自然文テキストから地名を抽出する最小コ�
 テキストを単語に分割するのは形態素解析器、または POS Tagger と呼ばれる
 ツールに共通の機能です。 pygeonlp は、分割した単語
 （またはその組み合わせ）から
-地名語辞書に登録されている地名語を見つけ、経緯度などを付け加える機能を
+地名解析辞書に登録されている地名語を見つけ、経緯度などを付け加える機能を
 持っている点が特徴です。
 
 解析結果のうち、 node_type が GEOWORD となっている部分が地名語です。
@@ -331,13 +331,13 @@ GIS アプリケーションで開けば、地図上にプロットすること�
 
 より進んだ使い方を知りたい方は、関連する説明へお進みください。
 
-- 抽出したい地名が辞書に載っていないので、独自の地名語辞書を作りたい
+- 抽出したい地名が辞書に載っていないので、独自の地名解析辞書を作りたい
 
-  - :ref:`make_dictionary` へ
+  - :ref:`dic_developers_index` へ
 
 - 住所文字列は住所として解析したい
 
-  - :ref:`link_geocoder` へ
+  - :ref:`link_jageocoder` へ
 
 - 別の場所にある同じ名前の地名が抽出されてしまうのでチューニングしたい
 

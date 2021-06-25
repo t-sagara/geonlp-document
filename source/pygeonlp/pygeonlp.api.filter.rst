@@ -1,3 +1,5 @@
+.. _filter:
+
 pygeonlp.api.filter module
 ==========================
 
