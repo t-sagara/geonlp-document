@@ -114,14 +114,18 @@
 上述の方法は、特定の条件に合わせて個別に対応する方法です。
 
 個別対応ではなく、組み込みの地名語選択ロジックの代わりに
-独自のロジックで地名語を選択したい場合には、スコアリング処理を行う関数
-（スコアリングメソッド）を作成し、
-``geoparse()`` のオプションパラメータ ``scoring_method`` で指定してください。
+独自のロジックで地名語を選択したい場合には、
+- パスに対するスコアを計算する関数
+- ノード間の関係によるスコアを計算する関数
+を持つスコアリングクラス ``pygeonlp.api.scoring.ScoringClass`` から
+サブクラスを派生し、 ``geoparse()`` のオプションパラメータ
+``scoring_class`` で指定してください。
 
-スコアリングメソッドの実装については ``pygeonlp.api.scoring.default_scoring_method()`` を
+スコアリングクラスの実装については ``pygeonlp.api.scoring.ScoringClass`` を
 参考にしてください。
-スコアリングメソッドに拡張パラメータを渡したい場合は、 ``geoparse()`` の
-オプションパラメータ ``scoring_options`` で任意の型の値を指定できます。
+スコアを計算する関数に拡張パラメータを渡したい場合は、 ``geoparse()`` の
+オプションパラメータ ``scoring_options`` で任意の型の値を指定すると、
+スコアリングクラスの ``options`` に渡されます。
 
 一例として、指定した固有名クラスの数をスコアとして返す単純なスコアリングメソッドを
 定義し、そのスコアリングメソッドを利用して geoparse の結果を表示するコードを示します。
@@ -130,39 +134,53 @@
 
   import pygeonlp.api as api
   from pygeonlp.api.linker import RankedResults
+  from pygeonlp.api.scoring import ScoringClass
 
   api.init()
 
-  def myscoring_method(path, target_class):
-      """
-      パスの中に指定した文字列で始まる固有名クラスの地名語が
-      存在する数をスコアとして返すスコアリングメソッド。
 
-      Parameters
-      ----------
-      path : list of Node
-          解析結果候補のパス表現。
-      target_class : str
-          カウントする固有名クラスの先頭文字列
+  class MyScoringClass(ScoringClass):
 
-      Returns
-      -------
-      int
-          target_class にマッチする固有名クラスを持つ地名語数。
-      """
-      score = 0
-      geowords = RankedResults.collect_geowords(path)
-      for geoword in geowords:
-          if geoword.prop['ne_class'].startswith(target_class):
-              score += 1
+      def path_score(self, path):
+          """
+          パスの中に指定した文字列で始まる固有名クラスの地名語が
+          存在する数をスコアとして返すスコアリングメソッド。
 
-      return score
+          Parameters
+          ----------
+          path : list of Node
+              解析結果候補のパス表現。
+          self.options : str
+              カウントする固有名クラスの先頭文字列
+
+          Returns
+          -------
+          int
+              target_class にマッチする固有名クラスを持つ地名語数。
+          """
+          if not isinstance(self.options, str):
+              raise RuntimeError(
+                  "オプションパラメータは文字列で指定してください。")
+
+          target_class = self.options
+          score = 0
+          geowords = RankedResults.collect_geowords(path)
+          for geoword in geowords:
+              if geoword.prop['ne_class'].startswith(target_class):
+                  score += 1
+
+          return score
+
 
   if __name__ == '__main__':
       print("'鉄道施設' が多い候補を優先した場合。")
-      print(api.geoparse('和歌山市は晴れ。', scoring_method=myscoring_method, scoring_options='鉄道施設', ))
+      print(api.geoparse(
+          '和歌山市は晴れ。',
+          scoring_class=MyScoringClass, scoring_options='鉄道施設', ))
       print("'市区町村' が多い候補を優先した場合。")
-      print(api.geoparse('和歌山市は晴れ。', scoring_method=myscoring_method, scoring_options='市区町村'))
+      print(api.geoparse(
+          '和歌山市は晴れ。',
+          scoring_class=MyScoringClass, scoring_options='市区町村'))
 
 実行結果は次のようになります。 ::
 

@@ -10,22 +10,16 @@ pygeonlp は日本語形態素解析に `MeCab <https://taku910.github.io/mecab/
 また、 C++ 実装部分が `Boost C++ <https://www.boost.org/>`_ に依存します。
 
 これらのパッケージは OS によってインストール手順が異なります。
-Ubuntu 18, 20 の場合には以下のコマンドでインストールできます。 ::
+対応する OS の手順を参照してください。
 
-  $ sudo apt install libmecab-dev mecab-ipadic-utf8 libboost-all-dev
-
-CentOS 7 の場合には以下のコマンドでインストールします。
-Mecab が公式リポジトリに含まれていないため、groonga リポジトリを追加しています。
-手動でコンパイル・インストールしてももちろん構いません。 ::
-
-  $ sudo yum install --nogpgcheck -y https://packages.groonga.org/centos/groonga-release-latest.noarch.rpm
-  $ sudo yum install mecab mecab-ipadic mecab-devel
-  $ sudo yum install boost-devel
+- :ref:`install_pygeonlp_ubuntu`
+- :ref:`install_pygeonlp_centos`
+- :ref:`install_pygeonlp_macos`
 
 pygeonlp のインストール
 -----------------------
 
-``pipenv``, ``venv`` 等を利用して Python 3.7 以降の環境を用意してください。
+Python 3.7 以降の環境を用意してください。
 pygeonlp パッケージは ``pip`` コマンドでインストールできます。 ::
 
   $ pip install pygeonlp
@@ -47,26 +41,12 @@ pygeonlp は `GDAL <https://pypi.org/project/GDAL/>`_ をインストールす�
 また、同じ名前の地名語が複数存在する場合の曖昧性解決に「空間的な距離」を
 利用することができ、精度が向上します。
 
-Ubuntu 18, 20 の場合は以下の手順で libgdal と Python 用 gdal パッケージを
-インストールしてください。 ::
+GDAL のインストール手順は OS によって異なります。
+対応する OS の手順を参照してください。
 
-  $ sudo apt install libgdal-dev
-  $ pip install gdal
-
-ただし ``libgdal`` と ``gdal`` パッケージのバージョンが一致している必要があります。
-たとえば ::
-
-  $ apt search libgdal-dev
-  libgdal-dev/bionic,now 2.4.2+dfsg-1~bionic0 amd64
-
-のように libgdal 2.4.2 がインストールされている場合は、 gdal も 2.4.2 を
-インストールしてください。 ::
-
-  $ pip install gdal==2.4.2
-
-CentOS 7 の場合は proj と gdal をコンパイルする必要があります
-( `参考 <https://gist.github.com/alanorth/9681766ed4c737adfb48a4ef549a8503>`_)。
-
+- :ref:`install_pygeonlp_ubuntu`
+- :ref:`install_pygeonlp_centos`
+- :ref:`install_pygeonlp_macos`
 
 jageocoder のインストール
 +++++++++++++++++++++++++
@@ -82,10 +62,8 @@ pygeonlp は `jageocoder <https://pypi.org/project/jageocoder/>`_
 地名解析辞書の登録
 ------------------
 
-pygeonlp モジュールには地名語辞書は付属していないため、
-そのままでは地名語の解析を行うことができません。
-
-次の処理を実行して、基本的な地名解析辞書を登録した
+pygeonlp モジュールには基本的な地名語辞書が付属しています。
+初回実行時に次の処理を実行して、付属の地名解析辞書を登録した
 データベースを作成してください。 ::
 
   python
@@ -111,7 +89,6 @@ GDAL や jageocoder も不要な場合、それぞれアンインストールし
 
   pip uninstall gdal
   pip uninstall jageocoder
-
 
 
 地名語解析辞書の完全削除
