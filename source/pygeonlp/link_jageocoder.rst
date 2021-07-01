@@ -32,13 +32,13 @@ pygeonlp を住所ジオコーダー `jageocoder <https://pypi.org/project/jageo
 このサンプルコードは以下の処理を行ないます。
 
 1. jageocoder パッケージを import します。
-2. pygeonlp.api パッケージを import します。
-3. ``api.get_jageocoder_dir()`` を呼んで jageocoder の辞書ディレクトリを探します。
+2. `pygeonlp.api パッケージ <pygeonlp.api.html>`_ を import します。
+3. `api.get_jageocoder_dir() <pygeonlp.api.html#pygeonlp.api.get_jageocoder_dir>`_ を呼んで jageocoder の辞書ディレクトリを探します。
 4. ``jageocoder.init()`` を呼んで jageocoder を利用可能にします。
-5. ``api.init()`` を呼んで pygeonlp.api を利用可能にします。
-6. ``api.geoparse()`` を jageocoder オプション付きで実行します。
+5. `api.init() <pygeonlp.api.html#pygeonlp.api.init>`_ を呼んで pygeonlp.api を利用可能にします。
+6. `api.geoparse() <pygeonlp.api.html#pygeonlp.api.geoparse>`_ を jageocoder オプション付きで実行します。
    jageocoder パラメータが指定されていると、地名語を抽出した後で
-   住所文字列の可能性がある部分をジオコーダーで処理してみて、
+   住所文字列の可能性がある部分をジオコーダーで確認し、
    住所として解析できれば住所ノードとして返します。
 
 住所ノードは ``node_type`` が ADDRESS になります。

@@ -1,46 +1,60 @@
 .. _install_pygeonlp_macos:
 
-インストール手順 (MacOS)
-=========================
+インストール手順 (MacOS 11)
+===========================
 
 ここでは MacOS に pygeonlp をインストールする手順の例を示します。
 動作確認済みのバージョンは 11.3.1 です。
 
-事前に必要なもの
-----------------
+python, pip の準備
+------------------
 
-pygeonlp は日本語形態素解析に `MeCab <https://taku910.github.io/mecab/>`_ C++ ライブラリと UTF8 の辞書を利用します。
-また、 C++ 実装部分が `Boost C++ <https://www.boost.org/>`_ に依存します。
-
-MeCab のインストール
-++++++++++++++++++++
-
-MacOS の場合には、 `Homebrew <https://brew.sh/index_ja>`_ を利用して
-Mecab をインストールします。
+MacOS では python 3.x と pip を `Homebrew <https://brew.sh/index_ja>`_ で
+インストールします。 
 
 まず Homebrew 公式サイトの手順通りにインストールします。 ::
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-次に brew コマンドを利用して mecab と mecab-ipadic をインストールします。 ::
-
-  brew install mecab mecab-ipadic
-
-Python3 のインストール
-++++++++++++++++++++++
-
-Python3 も brew コマンドでインストールできます。 ::
+次に brew コマンドで python3 をインストールします。 ::
 
   brew install python3
+  python3 --version
+  Python 3.9.5
+
+Python 3.9.5 は pygeonlp に対応しています。この python をそのまま
+利用する場合は、以降の説明の ``python`` を ``python3`` に、
+``pip`` を ``pip3`` に読み換えてください。
+
+他のモジュールとの依存関係などで問題が起こる可能性があるので、
+なるべく ``pyenv``, ``pipenv`` を利用してプロジェクトごとに
+独立した環境を用意することをお勧めします。 ::
+
+  brew install pyenv pipenv
+  pyenv install --list
+  pyenv install 3.9.5
+  pipenv --python=3.9.5
+
+事前に必要なもの
+----------------
+
+pygeonlp は日本語形態素解析に `MeCab <https://taku910.github.io/mecab/>`_ 
+C++ ライブラリと UTF8 の辞書を利用します。
+また、 C++ 実装部分が `Boost C++ <https://www.boost.org/>`_ に依存します。
+
+MeCab のインストール
+++++++++++++++++++++
+
+Mecab は brew コマンドでインストールします。 ::
+
+  brew install mecab mecab-ipadic
 
 Boost のインストール
 ++++++++++++++++++++
 
-Boost は、 brew でインストールしたものでは link 時にエラーが発生するため、
-手動でのインストール手順を紹介します。
-
-boost-python がコンパイルできるように、先に python3 を brew で
-インストールしておいてください。 ::
+Boost は brew でインストールできるのですが、その場合は pygeonlp の
+インストール時に link エラーが発生するため、ここでは
+手動でのインストール手順を紹介します。 ::
 
   curl https://jaist.dl.sourceforge.net/project/boost/boost/1.76.0/boost_1_76_0.tar.bz2 --output - | tar xj
   cd boost_1_76_0
@@ -65,17 +79,16 @@ pygeonlp のインストール
 -----------------------
 
 pygeonlp パッケージは pip コマンドでインストールできますが、
-boost と Homebrew のヘッダファイルとライブラリの場所を
+boost, Homebrew のヘッダファイルとライブラリの場所を
 環境変数で指定する必要があります。 ::
 
-  $ CFLAGS="-I/opt/boost_1_76/include -I/opt/homebrew/include" LDFLAGS="-L/opt/boost_1_76/lib -L/opt/homebrew/lib" pip3 install pygeonlp
+  $ CFLAGS="-I/opt/boost_1_76/include -I/opt/homebrew/include" LDFLAGS="-L/opt/boost_1_76/lib -L/opt/homebrew/lib" pip install pygeonlp
 
-python を実行する際、 Homebrew の python の場合は boost ライブラリの場所を、
-pyenv でインストールした python の場合は boost ライブラリと
-Homebrew のライブラリの場所を、環境変数 ``LD_LIBRARY_PATH`` で指示しないと
+インストールはこれで完了しますが、 python を実行して pygeonlp.api
+パッケージをインポートする際に boost ライブラリが見つからず、
 ``libboost_regex.dylib`` が見つからないというエラーが発生します。 ::
 
-  python3
+  python
   >>> import pygeonlp.api
   Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
@@ -84,14 +97,14 @@ Homebrew のライブラリの場所を、環境変数 ``LD_LIBRARY_PATH`` で�
   Referenced from: /opt/homebrew/lib/python3.9/site-packages/pygeonlp/capi.cpython-39-darwin.so
   Reason: image not found
 
-このエラーは ``LD_LIBRARY_PATH`` を指定すれば解決します。 ::
+このエラーは環境変数 ``DYLD_LIBRARY_PATH`` を指定すれば解決します。 ::
 
-  LD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib python3
+  DYLD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib python
   >>> import pygeonlp.api
 
 毎回指定したくない場合は、 ``~/.zprofile`` などで設定してください。 ::
 
-  export LD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib
+  export DYLD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib
 
 
 GDAL のインストール
@@ -104,13 +117,19 @@ pygeonlp は `GDAL <https://pypi.org/project/GDAL/>`_ をインストールす�
 また、同じ名前の地名語が複数存在する場合の曖昧性解決に「空間的な距離」を
 利用することができ、精度が向上します。
 
-MacOS の場合は、 brew コマンドで gdal 3.3 をインストールします。 ::
+MacOS の場合は、 brew コマンドで gdal 3.3 をインストールします。
+同時に brew python 用の gdal パッケージもインストールされます。 ::
 
   brew install gdal
 
+Pipenv 環境を利用している場合は、その環境の python 用に
+pip で gdal パッケージをインストールしてください。 ::
+
+  pip install gdal==3.3
+
 GDAL が有効になっているかどうかは次の手順で確認してください。 ::
 
-  $ python3
+  $ python
   >>> from pygeonlp.api.spatial_filter import GeoContainsFilter
   >>> gcfilter = GeoContainsFilter({"type":"Polygon","coordinates":[[[139.43,35.54],[139.91,35.54],[139.91,35.83],[139.43,35.83],[139.43,35.54]]]})
 

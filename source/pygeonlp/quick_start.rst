@@ -19,9 +19,9 @@ pygeonlp を使って自然文テキストから地名を抽出する最小コ�
 
 このコードは次の処理を行ないます。
 
-1. pygeonlp.api パッケージを読み込みます。
-2. init() を呼んで API が利用可能な状態に初期化します。
-3. geoparse() メソッドを呼んで、テキストを解析します。
+1. `pygeonlp.api パッケージ <pygeonlp.api.html>`_ を読み込みます。
+2. `init() <pygeonlp.api.html#pygeonlp.api.init>`_ を呼んで API が利用可能な状態に初期化します。
+3. `geoparse() <pygeonlp.api.html#pygeonlp.api.geoparse>`_ メソッドを呼んで、テキストを解析します。
 
 実行結果
 --------
@@ -335,7 +335,7 @@ GIS アプリケーションで開けば、地図上にプロットすること�
 
   - :ref:`dic_developers_index` へ
 
-- 住所文字列は住所として解析したい
+- 住所文字列を住所として解析したい
 
   - :ref:`link_jageocoder` へ
 

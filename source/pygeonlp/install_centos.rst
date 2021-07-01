@@ -1,7 +1,7 @@
 .. _install_pygeonlp_centos:
 
-インストール手順 (CentOS)
-=========================
+インストール手順 (CentOS 7)
+===========================
 
 ここでは CentOS に pygeonlp をインストールする手順の例を示します。
 動作確認済みのバージョンは 7.9.2009 です。
@@ -24,15 +24,44 @@ Boost は公式リポジトリのものを利用します。 ::
 
   $ sudo yum install boost-devel
 
+python, pip の準備
+------------------
+
+CentOS 7 の python3 は 3.6.8 のため、 pygeonlp に対応しています。
+
+他のモジュールとの依存関係などで問題が起こる可能性があるので、
+なるべく ``pyenv``, ``venv`` 等を利用して Python 3.8 以降の
+環境を用意することをお勧めします。
+
+OS デフォルトの python を利用する場合
++++++++++++++++++++++++++++++++++++++
+
+まだ pip3 をインストールしていない場合はインストールしてください。
+pygeonlp は C++ による拡張モジュールを含むため、開発環境も必要です。 ::
+
+  $ sudo yum install python3 python3-devel python3-pip
+
+パッケージをシステムレベルでインストールするには、 sudo が必要です。 ::
+
+  sudo pip install <package>
+
+sudo を付けない場合、自動的にユーザレベルでインストールされます。 ::
+
+  pip install <package>
+  Defaulting to user installation because normal site-packages is not writeable
+  ...
+
+Pyenv を利用する場合
+++++++++++++++++++++
+
+pyenv のインストール方法は `pyenv github <https://github.com/pyenv/pyenv#basic-github-checkout>`_ の ``Basic GitHub Checkout`` の手順に
+従ってください。
+
+パッケージは pyenv 環境内にインストールされます。
+
+
 pygeonlp のインストール
 -----------------------
-
-CentOS 7 の python3 は 3.6.8 のため、 pygeonlp 非対応です。
-
-``pyenv``, ``venv`` 等を利用して Python 3.7 以降の環境を用意してください。
-
-pyenv のインストール方法は `pyenv github <https://github.com/pyenv/pyenv#basic-github-checkout>`_ の Basic GitHub Checkout の手順に
-従ってください。
 
 pygeonlp パッケージは pip コマンドでインストールできます。 ::
 

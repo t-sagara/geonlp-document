@@ -1,6 +1,9 @@
 pygeonlp.api package
 ====================
 
+pygeonlp.api パッケージを構成するサブモジュール、
+およびメソッドのリファレンス。
+
 Submodules
 ----------
 

@@ -1,7 +1,7 @@
 .. _install_pygeonlp_ubuntu:
 
-インストール手順 (Ubuntu)
-=========================
+インストール手順 (Ubuntu 18)
+============================
 
 ここでは Ubuntu に pygeonlp をインストールする手順の例を示します。
 動作確認済みのバージョンは 18.04.5 LTS です。
@@ -16,17 +16,45 @@ Ubuntu 18 の場合には以下のコマンドでインストールできます�
 
   $ sudo apt install libmecab-dev mecab-ipadic-utf8 libboost-all-dev
 
-pygeonlp のインストール
------------------------
+python, pip の準備
+------------------
 
-Ubuntu 18 の python3 は 3.6.9 のため、 pygeonlp 非対応です。
+Ubuntu 18 の python3 は 3.6.9 のため、 pygeonlp に対応しています。
 
-``pyenv``, ``venv`` 等を利用して Python 3.7 以降の環境を用意してください。
+他のモジュールとの依存関係などで問題が起こる可能性があるので、
+なるべく ``pyenv``, ``venv`` 等を利用して Python 3.8 以降の
+環境を用意することをお勧めします。
+
+OS デフォルトの python を利用する場合
++++++++++++++++++++++++++++++++++++++
+
+まだ pip3 をインストールしていない場合はインストールしてください。 ::
+
+  $ sudo apt install python3-pip
+
+以降の説明の ``python`` を ``python3`` に、 ``pip`` を ``pip3`` に
+読み換えてください。
+
+パッケージをシステムレベルでインストールするには、 sudo が必要です。 ::
+
+  sudo pip3 install <package>
+
+ユーザレベルでインストールするには、 --user オプションを付けてください。 ::
+
+  pip3 install <package> --user
+
+Pyenv を利用する場合
+++++++++++++++++++++
 
 pyenv のインストール方法は `pyenv github <https://github.com/pyenv/pyenv#basic-github-checkout>`_ の ``Basic GitHub Checkout`` の手順に
 従ってください。
 
-pygeonlp パッケージは ``pip`` コマンドでインストールできます。 ::
+パッケージは pyenv 環境内にインストールされます。
+
+pygeonlp のインストール
+-----------------------
+
+pygeonlp パッケージは pip でインストールできます。 ::
 
   $ pip install pygeonlp
 

@@ -4,7 +4,7 @@
 ====================
 
 ver. 2.0.0
-  :ref:`pygeonlp` として再構築
+  Python 用モジュール pygeonlp として再構築
 
 Ver. 1.2.0
 
