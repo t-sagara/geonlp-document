@@ -51,6 +51,7 @@ pygeonlp モジュールには基本的な地名語辞書が付属していま�
 環境変数 ``GEONLP_DIR`` を宣言してから実行してください。
 
 この処理で登録される基本辞書は以下の3種類です。
+
 - 日本の都道府県 (``geonlp:geoshape-pref``)
 - 歴史的行政区域データセットβ版地名辞書 (``geonlp:geoshape-city``)
 - 日本の鉄道駅（2019年） (``geonlp:ksj-station-N02-2019``)

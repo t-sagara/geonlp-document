@@ -47,42 +47,32 @@ MeCab のインストール
 
 Mecab は brew コマンドでインストールします。 ::
 
-  brew install mecab mecab-ipadic
+  % brew install mecab mecab-ipadic
 
 Boost のインストール
 ++++++++++++++++++++
 
-Boost は brew でインストールできるのですが、その場合は pygeonlp の
-インストール時に link エラーが発生するため、ここでは
-手動でのインストール手順を紹介します。 ::
+Boost は brew でインストールできます。 ::
 
-  curl https://jaist.dl.sourceforge.net/project/boost/boost/1.76.0/boost_1_76_0.tar.bz2 --output - | tar xj
-  cd boost_1_76_0
-  ./bootstrap.sh
+  % brew install boost
 
-project-config.jam が生成されるので、 ``using python`` の行を brew が
-インストールする python3 に合わせて次のように変更してください。
-この行には python のバージョン、 python コマンドのフルパス、 pyconfig.h が
-置かれているディレクトリのフルパスを記述します。 ::
+しかし pygeonlp のインストール時に link エラーが発生するケースがあるため、
+ここでは手動でインストールする手順を紹介します。 ::
 
-  if ! [ python.configured ]
-  {
-      using python : 3.9 : /opt/homebrew/bin/python3 : /opt/homebrew/Cellar/python@3.9/3.9.5/Frameworks/Python.framework/Versions/3.9/include/python3.9 ;
-  }
-
-コンパイルとインストールを行ないます。 ::
-
-  ./b2
-  sudo ./b2 install --prefix=/opt/boost_1_76
+  % curl https://jaist.dl.sourceforge.net/project/boost/boost/1.76.0/boost_1_76_0.tar.bz2 --output - | tar xj
+  % cd boost_1_76_0
+  % ./bootstrap.sh --prefix=/opt/homebrew/Cellar/boost/1.76.0 --libdir=/opt/homebrew/Cellar/boost/1.76.0/lib --with-icu=/opt/homebrew/opt/icu4c --without-libraries=python,mpi
+  % ./b2 headers 
+  % ./b2 --prefix=/opt/homebrew/Cellar/boost/1.76.0 --libdir=/opt/homebrew/Cellar/boost/1.76.0/lib -d2 -j8 --layout=tagged-1.66 -sNO_LZMA=1 -sNO_ZSTD=1 install threading=multi,single link=shared,static
+  % brew link boost
 
 pygeonlp のインストール
 -----------------------
 
 pygeonlp パッケージは pip コマンドでインストールできますが、
-boost, Homebrew のヘッダファイルとライブラリの場所を
-環境変数で指定する必要があります。 ::
+Homebrew のヘッダファイルとライブラリの場所を環境変数で指定する必要があります。 ::
 
-  $ CFLAGS="-I/opt/boost_1_76/include -I/opt/homebrew/include" LDFLAGS="-L/opt/boost_1_76/lib -L/opt/homebrew/lib" pip install pygeonlp
+  $ CFLAGS="-I/opt/homebrew/include" LDFLAGS="-L/opt/homebrew/lib" pip install pygeonlp
 
 インストールはこれで完了しますが、 python を実行して pygeonlp.api
 パッケージをインポートする際に boost ライブラリが見つからず、
@@ -93,18 +83,18 @@ boost, Homebrew のヘッダファイルとライブラリの場所を
   Traceback (most recent call last):
     File "<stdin>", line 1, in <module>
     ...
-  ImportError: dlopen(/opt/homebrew/lib/python3.9/site-packages/pygeonlp/capi.cpython-39-darwin.so, 2): Library not loaded: @rpath/libboost_regex.dylib
+  ImportError: dlopen(/opt/homebrew/lib/python3.9/site-packages/pygeonlp/capi.cpython-39-darwin.so, 2): Library not loaded: @rpath/libboost_regex-mt.dylib
   Referenced from: /opt/homebrew/lib/python3.9/site-packages/pygeonlp/capi.cpython-39-darwin.so
   Reason: image not found
 
 このエラーは環境変数 ``DYLD_LIBRARY_PATH`` を指定すれば解決します。 ::
 
-  DYLD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib python
+  DYLD_LIBRARY_PATH=/opt/homebrew/lib python
   >>> import pygeonlp.api
 
 毎回指定したくない場合は、 ``~/.zprofile`` などで設定してください。 ::
 
-  export DYLD_LIBRARY_PATH=/opt/boost_1_76/lib:/opt/homebrew/lib
+  export DYLD_LIBRARY_PATH=/opt/homebrew/lib:$DYLD_LIBRARY_PATH
 
 
 GDAL のインストール
