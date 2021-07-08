@@ -16,7 +16,7 @@
 識別子（Identifiers）
 ---------------------
 
-GeoLOD ID (``geolod_id``)
+GeoLOD ID ( :ref:`geonlp_terms_geolod_id` )
   地名語の `GeoLOD サイト <https://geolod.ex.nii.ac.jp/>`_ 内での識別子です。
   サイトにログインし、CSV 形式の地名解析辞書をアップロードすると、
   辞書内の地名語にサーバがランダムにユニークな「GeoLOD ID」を与えます。

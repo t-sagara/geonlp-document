@@ -36,19 +36,21 @@ pygeonlp は日本語形態素解析に `MeCab <https://taku910.github.io/mecab/
 --------------------
 
 pygeonlp のインストールが完了した後、地名解析辞書を
-データベースに登録する作業を行なう必要があります。
+:ref:`pygeonlp_terms_database` に登録する作業を行なう必要があります。
 
-pygeonlp モジュールには基本的な地名語辞書が付属しています。
-初回実行時に次の処理を実行して、付属の地名解析辞書を登録した
+pygeonlp モジュールには基本的な地名解析辞書が付属していますが、
+そのままでは地名解析処理には利用できません。
+初回実行時に次の処理を実行して、付属の地名解析辞書から
 データベースを作成してください。 ::
 
-  python
+  $ python
   >>> import pygeonlp.api as api
   >>> api.setup_basic_database()
 
-データベースは ``$(HOME)/geonlp/dic`` に作成されます。
-データベースのディレクトリを変更したい場合は、
-環境変数 ``GEONLP_DIR`` を宣言してから実行してください。
+データベースは :ref:`pygeonlp_terms_db_dir` に作成されます。
+このディレクトリの場所を指定する方法については :ref:`pygeonlp_terms_db_dir`
+を、作成されるデータベースの詳細については :ref:`pygeonlp_terms_database` を
+参照してください。
 
 この処理で登録される基本辞書は以下の3種類です。
 
@@ -57,29 +59,54 @@ pygeonlp モジュールには基本的な地名語辞書が付属していま�
 - 日本の鉄道駅（2019年） (``geonlp:ksj-station-N02-2019``)
 
 
+**ディレクトリが見つからない場合**
+
+環境によって、付属の地名解析辞書が見つからず、「地名解析辞書が
+インストールされたディレクトリが見つかりません。」というエラーが
+発生する場合があります。
+
+その場合は以下の手順でディレクトリを見つけ、
+`setup_basic_database() <pygeonlp.api.html#pygeonlp.api.setup_basic_database>`_
+の ``src_dir`` パラメータで指定してください。
+
+- pip uninstall を実行してパッケージに含まれるファイルリストを確認します。
+  ``Proceed (y/n)?`` には n と答えてください。 ::
+
+    % pip uninstall pygeonlp
+    Uninstalling pygeonlp-1.0.0:
+      Would remove:
+      ...
+      /opt/homebrew/pygeonlp_basedata/geoshape-pref.csv
+      ...
+    Proceed (y/n)? n
+
+- ``geoshape-pref.csv`` などが含まれているディレクトリをメモします。
+  上の例では ``/opt/homebrew/pygeonlp_basedata/`` です。
+
+- ``setup_basic_database()`` でこのディレクトリを指定します。 ::
+
+    $ python
+    >>> import pygeonlp.api as api
+    >>> api.setup_basic_database(src_dir='/opt/homebrew/pygeonlp_basedata/')
+
+
 pygeonlp のアンインストール
 ---------------------------
 
 pygeonlp が不要になった場合は以下のコマンドでアンインストールできます。 ::
 
-  pip uninstall pygeonlp
+  $ pip uninstall pygeonlp
 
 GDAL も不要な場合にはアンインストールしてください。 ::
 
-  pip uninstall gdal
+  $ pip uninstall gdal
 
 
-地名語解析辞書の完全削除
-------------------------
+データベースの完全削除
+----------------------
 
-地名語解析辞書を登録すると、指定したディレクトリに辞書ファイルや
-インデックスファイルを作成します。それ以外の場所は変更しませんので、
-全ての辞書を削除したい場合はディレクトリごと消去してください。 ::
+地名語解析辞書を登録すると、データベースディレクトリにファイルを作成します。
+詳細は :ref:`db_dir` を参照してください。
 
-  $ rm -r $HOME/geonlp/dic
-
-環境変数 ``GEONLP_DIR`` を指定していた場合はそのディレクトリを削除してください。 ::
-
-  $ rm -r $GEONLP_DIR
-
-
+それ以外の場所は変更しませんので、全てのデータベースを削除したい場合は
+データベースディレクトリごと消去してください。

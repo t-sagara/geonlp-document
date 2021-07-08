@@ -25,8 +25,7 @@ Ubuntu 18 の python3 は 3.6.9 のため、 pygeonlp に対応しています�
 なるべく ``pyenv``, ``venv`` 等を利用して Python 3.8 以降の
 環境を用意することをお勧めします。
 
-OS デフォルトの python を利用する場合
-+++++++++++++++++++++++++++++++++++++
+**OS デフォルトの python を利用する場合**
 
 まだ pip3 をインストールしていない場合はインストールしてください。 ::
 
@@ -37,14 +36,13 @@ OS デフォルトの python を利用する場合
 
 パッケージをシステムレベルでインストールするには、 sudo が必要です。 ::
 
-  sudo pip3 install <package>
+  $ sudo pip3 install <package>
 
 ユーザレベルでインストールするには、 --user オプションを付けてください。 ::
 
-  pip3 install <package> --user
+  $ pip3 install <package> --user
 
-Pyenv を利用する場合
-++++++++++++++++++++
+**Pyenv を利用する場合**
 
 pyenv のインストール方法は `pyenv github <https://github.com/pyenv/pyenv#basic-github-checkout>`_ の ``Basic GitHub Checkout`` の手順に
 従ってください。
@@ -64,15 +62,12 @@ pip や setuptools が古いとエラーが発生する場合があります。
 
   $ pip install --upgrade pip setuptools
 
-GDAL のインストール
-+++++++++++++++++++
+**GDAL のインストール**
 
 この項目はオプションです。
 
 pygeonlp は `GDAL <https://pypi.org/project/GDAL/>`_ をインストールすると、
 :ref:`spatialfilter` を利用することができます。
-また、同じ名前の地名語が複数存在する場合の曖昧性解決に「空間的な距離」を
-利用することができ、精度が向上します。
 
 Ubuntu 18 の場合は以下の手順で libgdal と Python 用 gdal パッケージを
 インストールしてください。 ::
@@ -80,7 +75,7 @@ Ubuntu 18 の場合は以下の手順で libgdal と Python 用 gdal パッケ�
   $ sudo apt install libgdal-dev
   $ pip install gdal
 
-ただし ``libgdal`` と ``gdal`` パッケージのバージョンが一致している必要があります。
+ただし libgdal と gdal パッケージのバージョンが一致している必要があります。
 たとえば ::
 
   $ apt search libgdal-dev

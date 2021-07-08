@@ -331,6 +331,11 @@ GIS アプリケーションで開けば、地図上にプロットすること�
 
 より進んだ使い方を知りたい方は、関連する説明へお進みください。
 
+- `NEologd <https://github.com/neologd/mecab-ipadic-neologd/>`_
+  と連携して固有表現の抽出精度を上げたい
+
+  - :ref:`link_neologd` へ
+
 - 抽出したい地名が辞書に載っていないので、独自の地名解析辞書を作りたい
 
   - :ref:`dic_developers_index` へ

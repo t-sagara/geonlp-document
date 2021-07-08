@@ -44,7 +44,9 @@ PyGeoNLP は、まず自然文を MeCab で解析し、単語のリストを作�
 
    install.rst
    quick_start.rst
+   link_neologd.rst
    link_jageocoder.rst
    tuning.rst
+   terms.rst
    json/index.rst
    pygeonlp.api.rst

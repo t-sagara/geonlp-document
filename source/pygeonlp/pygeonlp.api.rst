@@ -20,6 +20,7 @@ Submodules
    pygeonlp.api.service
    pygeonlp.api.spatial_filter
    pygeonlp.api.temporal_filter
+   pygeonlp.api.devtool
 
 Module contents
 ---------------

@@ -33,8 +33,7 @@ CentOS 7 の python3 は 3.6.8 のため、 pygeonlp に対応しています。
 なるべく ``pyenv``, ``venv`` 等を利用して Python 3.8 以降の
 環境を用意することをお勧めします。
 
-OS デフォルトの python を利用する場合
-+++++++++++++++++++++++++++++++++++++
+**OS デフォルトの python を利用する場合**
 
 まだ pip3 をインストールしていない場合はインストールしてください。
 pygeonlp は C++ による拡張モジュールを含むため、開発環境も必要です。 ::
@@ -43,16 +42,15 @@ pygeonlp は C++ による拡張モジュールを含むため、開発環境も
 
 パッケージをシステムレベルでインストールするには、 sudo が必要です。 ::
 
-  sudo pip install <package>
+  $ sudo pip install <package>
 
 sudo を付けない場合、自動的にユーザレベルでインストールされます。 ::
 
-  pip install <package>
+  $ pip install <package>
   Defaulting to user installation because normal site-packages is not writeable
   ...
 
-Pyenv を利用する場合
-++++++++++++++++++++
+**Pyenv を利用する場合**
 
 pyenv のインストール方法は `pyenv github <https://github.com/pyenv/pyenv#basic-github-checkout>`_ の ``Basic GitHub Checkout`` の手順に
 従ってください。
@@ -73,15 +71,12 @@ pip や setuptools が古いとエラーが発生する場合があります。
 
   $ pip install --upgrade pip setuptools
 
-GDAL のインストール
-+++++++++++++++++++
+**GDAL のインストール**
 
 この項目はオプションです。
 
 pygeonlp は `GDAL <https://pypi.org/project/GDAL/>`_ をインストールすると、
 :ref:`spatialfilter` を利用することができます。
-また、同じ名前の地名語が複数存在する場合の曖昧性解決に「空間的な距離」を
-利用することができ、精度が向上します。
 
 CentOS 7 の場合は、 gdal 2.x 以上をパッケージインストールできる
 リポジトリが見当たらないため、手動でコンパイルすることを推奨します（
@@ -93,26 +88,26 @@ CentOS 7 の場合は、 gdal 2.x 以上をパッケージインストールで�
 まず pyenv をインストールしてください。次に、 pyenv 環境下で anaconda を
 インストールします。 ::
 
-  pyenv install --list | grep anaconda
-  pyenv install anaconda3-2021.05   # 最新のものにしてください
-  pyenv global anaconda3-2021.05
-  conda update --all
+  $ pyenv install --list | grep anaconda
+  $ pyenv install anaconda3-2021.05   # 最新のものにしてください
+  $ pyenv global anaconda3-2021.05
+  $ conda update --all
 
 次に pygeonlp を利用する conda 環境 myenv を作成します（名前は
 myenv 以外でも構いません）。
 anaconda の gdal が python 3.8.2 用なので、それに合わせます
 (インストール可能な gdal は ``conda search gdal`` で探せます）。 ::
 
-  conda create --name=myenv python=3.8.2
-  conda activate myenv
+  $ conda create --name=myenv python=3.8.2
+  $ conda activate myenv
 
 この環境に pygeonlp をインストールしてから gdal をインストールします。
 先に gdal をインストールすると、一緒にインストールされる boost が
 公式リポジトリの boost-devel よりも優先されてしまい、
 pygeonlp のコンパイルが失敗します。 ::
 
-  pip install pygeonlp
-  conda install gdal
+  $ pip install pygeonlp
+  $ conda install gdal
 
 次回以降は ``conda activate myenv`` で pygeonlp を利用できます。
 

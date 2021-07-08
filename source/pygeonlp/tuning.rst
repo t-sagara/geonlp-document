@@ -117,6 +117,8 @@
 フィルタはいくつでも指定できますが、複数のフィルタを指定した場合には
 全てのフィルタを通過する地名語だけが残ります（AND条件）。
 
+.. _tuning_scoring :
+
 スコアリング方法のカスタマイズ
 ------------------------------
 
@@ -124,8 +126,10 @@
 
 個別対応ではなく、組み込みの地名語選択ロジックの代わりに
 独自のロジックで地名語を選択したい場合には、
-- パスに対するスコアを計算する関数
-- ノード間の関係によるスコアを計算する関数
+
+- パスに対するスコアを計算する関数 ``path_score()``
+- ノード間の関係によるスコアを計算する関数 ``node_relation_score()``
+
 を持つスコアリングクラス 
 `pygeonlp.api.scoring.ScoringClass <pygeonlp.api.scoring.html#pygeonlp.api.scoring.ScoringClass>`_
 からサブクラスを派生し、
@@ -134,10 +138,10 @@
 スコアリングクラスの実装については ``pygeonlp.api.scoring.ScoringClass`` が
 サンプル実装となっていますので参考にしてください。
 
-スコアを計算する関数に拡張パラメータを渡したい場合は、まず ``geoparse()`` の
-オプションパラメータ ``scoring_options`` に任意の型の値を指定し、
-スコアリングクラスの ``options`` に保存します。
-次に、ノード間のスコアを計算する関数 `node_relation_score() <pygeonlp.api.scoring.html#pygeonlp.api.scoring.ScoringClass.node_relation_score>`_
+スコアを計算する関数に拡張パラメータを渡したい場合は、 ``geoparse()`` の
+オプションパラメータ ``scoring_options`` に任意の型の値を指定します。
+この値はスコアリングクラスのメンバ変数 ``options`` に格納されますので、
+ノード間のスコアを計算する関数 `node_relation_score() <pygeonlp.api.scoring.html#pygeonlp.api.scoring.ScoringClass.node_relation_score>`_
 およびパスのスコアを計算する関数 `path_score() <pygeonlp.api.scoring.html#pygeonlp.api.scoring.ScoringClass.path_score>`_
 の中で ``self.options`` を参照して利用してください。
 

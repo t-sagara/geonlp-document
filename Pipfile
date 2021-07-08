@@ -8,8 +8,9 @@ verify_ssl = true
 [packages]
 sphinx = "*"
 lxml = "*"
-pygeonlp = {path = "./../pygeonlp", editable = true}
 gdal = "==2.4.2"
+pygeonlp = {editable = true, path = "/home/sagara/github/pygeonlp_pub"}
+geographiclib = "*"
 
 [requires]
 python_version = "3.8"

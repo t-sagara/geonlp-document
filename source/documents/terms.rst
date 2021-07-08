@@ -34,6 +34,22 @@ GeoNLPは文章を場所に関連づけることを目的としているので�
 表す「固有名クラス」を付与する必要があります。
 詳しくは :ref:`class_about` を参照してください。
 
+
+.. _geonlp_terms_geolod_id:
+
+geolod\_id
+----------
+
+:ref:`geonlp_terms_geoword` の GeoNLP 用の識別子です。
+
+`GeoLOD <https://geolod.ex.nii.ac.jp/>`_ と地名語を共通化するため、
+geolod\_id という名前を利用していますが、旧バージョンの geonlp\_id と
+同じものです。
+
+複数の地名語が意味的に同じ地物を指していても、登録されている
+地名解析辞書が異なっていれば geolod\_id も異なります。
+
+
 .. _geonlp_terms_dictionary:
 
 地名解析辞書
@@ -80,3 +96,4 @@ GeoNLPでは、自然言語文章中で場所を特定するために利用さ�
 * 千代田区一ツ橋２－１－２
 * ロンドン市ベーカー街221B
 * ペンシルベニア通り1600番地
+
