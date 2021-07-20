@@ -54,7 +54,7 @@
 
   >>> import pygeonlp.api as api
   >>> api.init()
-  >>> api.setActiveClasses(patterns=[r'.*', r'-鉄道施設/.*])
+  >>> api.setActiveClasses(patterns=[r'.*', r'-鉄道施設/.*'])
   >>> api.geoparse('和歌山市は晴れ。')
   [{'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [135.170808, 34.230514]}, 'properties': {'surface': '和歌山市', 'node_type': 'GEOWORD', 'morphemes': {'conjugated_form': '*', 'conjugation_type': '*', 'original_form': '和歌山市', 'pos': '名詞', 'prononciation': '', 'subclass1': '固有名詞', 'subclass2': '地名語', 'subclass3': 'lQccqK:和歌山市', 'surface': '和歌山市', 'yomi': ''}, 'geoword_properties': {'address': '和歌山県和歌山市', 'body': '和歌山', 'body_variants': '和歌山', 'code': {}, 'countyname': '', 'countyname_variants': '', 'dictionary_id': 1, 'entry_id': '30201A1968', 'geolod_id': 'lQccqK', 'hypernym': ['和歌山県'], 'latitude': '34.23051400', 'longitude': '135.17080800', 'ne_class': '市区町村', 'prefname': '和歌山県', 'prefname_variants': '和歌山県', 'source': '1/和歌山市役所/和歌山市七番丁23/P34-14_30.xml', 'suffix': ['市'], 'valid_from': '1889-04-01', 'valid_to': '', 'dictionary_identifier': 'geonlp:geoshape-city'}}}, ... ]
 

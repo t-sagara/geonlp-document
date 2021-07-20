@@ -3,3 +3,4 @@ build/
 themes
 tmp/
 
+/source/pygeonlp/webapi_doc
