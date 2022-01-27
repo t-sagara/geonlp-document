@@ -10,3 +10,11 @@ It also provides toponym data sharing service, linked open data service and so o
 
 For more detail, please visit
 https://geonlp.ex.nii.ac.jp/
+
+
+Options
+-------
+
+- Google Analytics
+
+    Put google analytics snipet to `secure/google-analytics`.

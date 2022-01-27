@@ -11,7 +11,8 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os
+import sys
+import os
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -103,7 +104,7 @@ html_theme = 'default'
 #html_theme_options = {}
 
 # Add any paths that contain custom themes here, relative to this directory.
-html_theme_path = [ '../themes/default' ]
+html_theme_path = ['../themes/default']
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -139,7 +140,7 @@ html_static_path = ['_static']
 #html_sidebars = {}
 # see http://sphinx-doc.org/config.html#confval-html_sidebars
 html_sidebars = {
-'**': ['globaltoc.html', 'localtoc.html', 'relations.html']
+    '**': ['globaltoc.html', 'localtoc.html', 'relations.html']
 }
 
 # Additional templates that should be rendered to pages, maps page names to
@@ -181,21 +182,21 @@ htmlhelp_basename = 'GeoNLPdoc'
 # -- Options for LaTeX output --------------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+    # The paper size ('letterpaper' or 'a4paper').
+    # 'papersize': 'letterpaper',
 
-# The font size ('10pt', '11pt' or '12pt').
-#'pointsize': '10pt',
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '10pt',
 
-# Additional stuff for the LaTeX preamble.
-#'preamble': '',
+    # Additional stuff for the LaTeX preamble.
+    # 'preamble': '',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'GeoNLP.tex', u'GeoNLP Documentation',
-   u'Takeshi Sagara', 'manual'),
+    ('index', 'GeoNLP.tex', u'GeoNLP Documentation',
+     u'Takeshi Sagara', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -238,9 +239,9 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  ('index', 'GeoNLP', u'GeoNLP Documentation',
-   u'Takeshi Sagara', 'GeoNLP', 'One line description of project.',
-   'Miscellaneous'),
+    ('index', 'GeoNLP', u'GeoNLP Documentation',
+     u'Takeshi Sagara', 'GeoNLP', 'One line description of project.',
+     'Miscellaneous'),
 ]
 
 # Documents to append as an appendix to all manuals.
@@ -254,3 +255,15 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+# Google Analytics
+path = os.path.join(
+    os.path.dirname(__file__),
+    '../secure/google-analytics')
+if os.path.exists(path):
+    with open(path, 'r') as f:
+        google_analytics = f.read()
+else:
+    google_analytics = None
+
+html_context = {'google_analytics': google_analytics}
