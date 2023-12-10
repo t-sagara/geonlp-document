@@ -3,6 +3,8 @@ build/
 themes
 tmp/
 
+/.venv/
+
 /source/pygeonlp
 
 /secure/*

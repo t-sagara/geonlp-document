@@ -11,6 +11,11 @@
 --------------------
 
 地名解析辞書のメタデータは次のような JSON フォーマットで記載します。
+このフォーマットは、
+`Google データセット検索 <https://datasetsearch.research.google.com/>`_
+で地名解析辞書を検索できるようにするための
+`構造化データ <https://developers.google.com/search/docs/appearance/structured-data/dataset?hl=ja>`_
+を兼ねています。
 
 .. code-block:: json
 
@@ -57,13 +62,14 @@
 以下の項目は pygeonlp で利用する際に必須です。
 
 - name : 辞書名として利用します
-- distribution.contentUrl : CSV 地名解析辞書をダウンロードする URL として
-  利用します
-- identifier : ``geonlp::`` から始まるものをこの辞書の identifier として
-  利用します
+- identifier : 複数の identifier をリストで指定できますが（構造化データの
+  仕様による）、そのうち ``geonlp::`` から始まるものをこのデータの
+  地名解析辞書 identifier として利用します
 
-その他の項目はこの地名解析辞書が `Google Dataset Search <https://datasetsearch.research.google.com/>`_ 
-で検索できるようにするために利用します。
+その他の項目はこのデータが
+`Google Dataset Search <https://datasetsearch.research.google.com/>`_ 
+で検索できるようにするためのもので、なるべく詳細に記述した方が
+検索によって見つかりやすくなります。
 
 非公開の地名解析辞書を pygeonlp で利用したいだけの場合、
 最小のメタデータは次のようになります。
@@ -72,15 +78,5 @@
 
   {
     "name": "日本の鉄道駅（2019年）",
-    "url": "https://www.info-proto.com/static/ksj-station-N02-2019.html",
-    "distribution": [
-      {
-        "@type": "DataDownload",
-        "contentUrl": "https://www.info-proto.com/static/ksj-station-N02-2019.csv",
-        "encodingFormat": "text/csv"
-      }
-    ],
-    "identifier": [
-      "geonlp:ksj-station-N02-2019"
-    ]
+    "identifier": ["geonlp:ksj-station-N02-2019"]
   }

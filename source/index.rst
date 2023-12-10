@@ -32,7 +32,7 @@ GeoNLP を利用するには、オープンソースソフトウェアとして�
 
 地名解析辞書の作成、共有に関心があるユーザは :ref:`dic_developers_index` を、
 GeoNLP ソフトウェアを利用した地名解析アプリケーション開発に関心があるユーザは
-:ref:`pygeonlp` を参照してください。
+`Pygeonlp リファレンス <https://pygeonlp.readthedocs.io>`_ を参照してください。
 
 これらのリファレンスでは、地名語や辞書の項目についての情報が必要になる場合があるので、
 必要に応じて :ref:`documents_index` も参照してください。
@@ -40,7 +40,5 @@ GeoNLP ソフトウェアを利用した地名解析アプリケーション開�
 .. toctree::
    :maxdepth: 3
 
-   whats_new/index
    dic_developers/index
-   pygeonlp/index
    documents/index

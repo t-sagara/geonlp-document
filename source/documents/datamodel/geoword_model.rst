@@ -27,6 +27,8 @@
    "valid_from", "有効期間（開始）", "Extended", "日付文字列または空", "'1942-09'"
    "valid_to", "有効期間（終了）", "Extended", "日付文字列または空", "''"
 
+.. _datamodel_required_types:
+
 必須種別
 --------
 

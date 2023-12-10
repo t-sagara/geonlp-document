@@ -4,10 +4,14 @@
 辞書製作者向け資料
 ====================================================
 
-ここでは GeoNLP 地名解析辞書を制作、修正するユーザに必要な情報を提供します。
+ここでは :ref:`geonlp_terms_dictionary` を制作、修正するユーザに
+必要な情報を提供します。
 
 .. toctree::
    :maxdepth: 2
 
-   tutorial/toc
+   tutorial/index
+   tutorial/create_dictionary
+   tutorial/upload_dictionary
+   tutorial/share_dictionary
    tips.rst
